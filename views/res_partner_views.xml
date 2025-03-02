@@ -13,12 +13,12 @@
                     <button name="action_add_blacklist"
                             class="btn btn-secondary" string="Add To Blacklist"
                             type="object"
-                            modifiers="{'invisible': [('blacklisted','!=',False)]}"/>
+                            invisible="blacklisted != False"/>
                     <button name="action_remove_blacklist"
                             class="btn btn-secondary"
                             string="Remove From Blacklist"
                             type="object"
-                            modifiers="{'invisible': [('blacklisted','!=',True)]}"/>
+                            invisible="blacklisted != True"/>
                 </header>
             </xpath>
             <xpath expr="//field[@name='category_id']" position="after">

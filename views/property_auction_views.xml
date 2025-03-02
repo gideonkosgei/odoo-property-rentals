@@ -26,27 +26,27 @@
                            statusbar_visible="draft,confirmed,started"/>
                     <button name='action_confirm' string='Confirm'
                             class='oe_highlight' type='object'
-                            modifiers="{'invisible': [('state', '!=', 'draft')]}"/>
+                            invisible="state != 'draft'"/>
                     <button name='action_start' string='Start'
                             class='oe_highlight' type='object'
-                            modifiers="{'invisible': [('state', '!=', 'confirmed')]}"/>
+                            invisible="state != 'confirmed'"/>
                     <button name='action_end' string='End'
                             class='oe_highlight' type='object'
-                            modifiers="{'invisible': [('state', '!=', 'started')]}"/>
+                            invisible="state != 'started'"/>
                     <button name='action_create_sale_order'
                             string='Create Sale Order'
                             type='object' class='oe_highlight'
-                            modifiers="{'invisible': ['|',('state', '!=', 'ended'),('sold', '=', True)]}"/>
+                            invisible="state != 'ended' or sold == True"/>
                     <button name='action_cancel' string='Cancel'
                             type='object'
-                            modifiers="{'invisible': [('state', 'in', ['draft','ended'])]}"/>
+                            invisible="state == 'draft' or state == 'ended'"/>
                 </header>
                 <sheet>
                     <div name="button_box" class="oe_button_box">
                         <button name="action_view_sale_order"
                                 string='Sale Order' type="object"
                                 class="oe_stat_button" icon="fa-dollar"
-                                modifiers="{'invisible':[('sold','=',False)]}"/>
+                                invisible="sold == False"/>
                     </div>
                     <div class="oe_title">
                         <h1>
@@ -70,7 +70,7 @@
                     <notebook>
                         <page string="Participant">
                             <field name="participant_ids"
-                                   modifiers="{'readonly': [('state', '!=', 'started')]}">
+                                   readonly="state != 'started'">
                                 <list editable="bottom">
                                     <field name="partner_id"/>
                                     <field name="bid_time"/>

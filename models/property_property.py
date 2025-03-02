@@ -21,12 +21,13 @@ class Property(models.Model):
     )
     property_type = fields.Selection(
         [
-            ("land", "Land"),
             ("residential", "Residential"),
             ("commercial", "Commercial"),
-            ("industry", "Industry"),
+            ("mixed", "Mixed"),
+            ("industry", "Industrial"),
+            ("land", "Land"),
         ],
-        string="Type",
+        string="Property Type",
         required=True,
         help="The type of the property",
     )
@@ -36,6 +37,7 @@ class Property(models.Model):
             ("available", "Available"),
             ("rented", "Rented"),
             ("sold", "Sold"),
+            ("maintenance", "Maintenance"),
         ],
         required=True,
         string="Status",

@@ -50,7 +50,6 @@
     ],
     'assets': {
         'web.assets_frontend': [
-            'advanced_property_management/static/src/js/hr_employee_kanban.js',
             # 'advanced_property_management/static/src/js/property_website.js',
             # 'advanced_property_management/static/src/js/property_item.js',
         ],
