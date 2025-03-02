@@ -38,22 +38,19 @@
                 <header>
                     <button name="action_cancel" string="Cancel" type="object"
                             class="btn-secondary"
-                            modifiers="{'invisible': [('state', 'not in', ['draft', 'in_contract', 'expired'])]}"
+                            invisible="state != 'draft' or state != 'in_contract' or state != 'expired'"
                     />
                     <field name="state" widget="statusbar"
                            options="{'clickable': '1'}"/>
                     <button name="action_create_contract" class="oe_highlight"
-                            modifiers="{'invisible': [('state', '!=', 'draft')]}"
+                            invisible="state != 'draft'"
                             string="Create Contract"
                             type="object"/>
                 </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
-                        <button name="action_view_invoice" type="object"
-                                class="oe_stat_button" icon="fa-book"
-                                modifiers="{'invisible':[('invoice_count','=',0)]}">
-                            <field name="invoice_count" widget="statinfo"
-                                   string="Invoices"/>
+                        <button name="action_view_invoice" type="object" class="oe_stat_button" icon="fa-book" invisible="invoice_count == 0">
+                            <field name="invoice_count" widget="statinfo" string="Invoices"/>
                         </button>
                     </div>
                     <div class="oe_title">

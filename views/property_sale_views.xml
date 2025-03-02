@@ -40,12 +40,12 @@
                 <header>
                     <button name="create_invoice" string="Create Invoice"
                             type="object" class="btn primary"
-                            modifiers="{'invisible': [('state', '!=', 'confirm'), ('invoiced', '=', False)]}"/>
+                            invisible="state != 'confirm' and invoiced == False"/>
                     <button name="commission_bill" string="Commission Bill"
                             type="object" class="btn primary"
-                            modifiers="{'invisible': [('state', '!=', 'confirm'),('billed', '=', False)]}"/>
+                            invisible="state != 'confirm' and billed == False"/>
                     <button name="action_confirm" string="Confirm" type="object"
-                             modifiers="{'invisible': [('state', '!=', 'draft')]}"
+                            invisible="state != 'draft'"
                             class="btn primary"/>
                     <field name="state" widget="statusbar"/>
                 </header>
@@ -54,11 +54,11 @@
                         <button name="action_view_invoice" type="object"
                                 class="oe_stat_button" icon="fa-file"
                                 string="Invoices"
-                                modifiers="{'invisible': [('invoiced', '=', False)]}"/>
+                                invisible="invoiced == False"/>
                         <button name="action_view_commission_bill" type="object"
                                 class="oe_stat_button" icon="fa-file"
                                 string="Commission Bills"
-                                modifiers="{'invisible': [('billed', '=', False)]}"/>
+                                invisible="billed == False"/>
                     </div>
                     <div class="oe_title">
                         <h1>
@@ -90,10 +90,9 @@
                     <group string="Broker Details">
                         <group>
                             <field name="any_broker"/>
-                            <field name="broker_id"
-                                   modifiers="{'invisible':[('any_broker','=',False)]}"/>
+                            <field name="broker_id" invisible="any_broker == False"/>
                         </group>
-                        <group modifiers="{'invisible':[('any_broker','=',False)]}">
+                        <group invisible="any_broker == False">
                             <field name="commission_plan_id"/>
                             <field name="commission_type"/>
                             <field name="commission"/>

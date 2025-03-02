@@ -50,22 +50,24 @@
                            statusbar_visible="draft,available"/>
                     <button name="action_available" string="Available"
                             type="object" class="btn-primary"
-                            modifiers="{'invisible':[('state','!=','draft')]}"/>
+                            invisible="state != 'draft'"/>
+
                 </header>
                 <sheet>
                     <div name="button_box" class="oe_button_box">
                         <button name="action_get_map" string='Locate'
                                 type="object"
                                 class="oe_stat_button" icon="fa-map-marker"
-                                modifiers="{'invisible':['|',('latitude','=',False),('longitude','=',False)]}"/>
+                                invisible="latitude == False and longitude == False"/>
                         <button name="action_property_sale_view" type="object"
                                 class="oe_stat_button"
                                 icon="fa-dollar" string="Sale"
-                                modifiers="{'invisible':[('state','!=','sold')]}"/>
+                                invisible="state != 'sold'"/>
+
                         <button name="action_property_rental_view" type="object"
                                 class="oe_stat_button"
                                 icon="fa-dollar" string="Rental"
-                                modifiers="{'invisible':[('state','!=','rented')]}"/>
+                                invisible="state != 'rented'"/>
                     </div>
                     <field name="image" widget="image" class="oe_avatar"/>
                     <div class="oe_title">
@@ -114,15 +116,12 @@
                         </group>
                         <group string="Price Details" name="price_details">
                             <field name="sale_rent"/>
-                            <field name="unit_price"
-                                   modifiers="{'invisible': [('sale_rent','!=','for_sale')]}"/>
-                            <field name="rent_month"
-                                   modifiers="{'invisible': [('sale_rent','!=','for_tenancy')]}"/>
+                            <field name="unit_price"  invisible="sale_rent != 'for_sale'"/>
+                            <field name="rent_month" invisible="sale_rent != 'for_tenancy'"/>
                             <field name="landlord_id"/>
                         </group>
                     </group>
-                    <group string="Land Details"
-                           modifiers="{'invisible': [('property_type','!=','land')]}">
+                    <group string="Land Details" invisible="property_type != 'land'">
                         <group>
                             <field name="land_name"/>
                         </group>
@@ -130,8 +129,7 @@
                             <field name="land_area"/>
                         </group>
                     </group>
-                    <group string="Residential Details"
-                           modifiers="{'invisible': [('property_type','!=','residential')]}">
+                    <group string="Residential Details" invisible="property_type != 'residential'">
                         <group>
                             <field name="type_residence"/>
                             <field name="total_floor"/>
@@ -143,8 +141,7 @@
                             <field name="parking"/>
                         </group>
                     </group>
-                    <group string="Commercial Details"
-                           modifiers="{'invisible': [('property_type','!=','commercial')]}">
+                    <group string="Commercial Details" invisible="property_type != 'commercial'">
                         <group>
                             <field name="shop_name"/>
                             <field name="usage"/>
@@ -153,8 +150,7 @@
                             <field name="total_floor"/>
                         </group>
                     </group>
-                    <group string="Industrial Details"
-                           modifiers="{'invisible': [('property_type','!=','industry')]}">
+                    <group string="Industrial Details" invisible="property_type != 'industry'">
                         <group>
                             <field name="industry_name"/>
                             <field name="usage"/>
@@ -258,7 +254,6 @@
         <field name="name">property.property.view.kanban</field>
         <field name="model">property.property</field>
         <field name="arch" type="xml">
-<!--            <kanban class="o_hr_employee_kanban" js_class="hr_employee_kanban" sample="1">-->
             <kanban class="o_hr_employee_kanban"  sample="1">
                 <field name="id"/>
                 <field name="name"/>
