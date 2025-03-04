@@ -34,19 +34,6 @@ class Property(models.Model):
         required=True, tracking=True
     )
 
-    security_level = fields.Selection([
-        ('low', 'Low'),
-        ('medium', 'Medium'),
-        ('high', 'High'),
-    ], string="Security Level")
-
-    noise_level = fields.Selection([
-        ('quiet', 'Quiet'),
-        ('moderate', 'Moderate'),
-        ('noisy', 'Noisy'),
-
-    ], string="Noise Level")
-
     state = fields.Selection(
         [
             ("draft", "Draft"),
@@ -96,12 +83,6 @@ class Property(models.Model):
 
     main_road = fields.Char(string="Main Road",  help="Main road to the property", tracking=True)
 
-    public_transport = fields.Selection([
-        ('excellent', 'Excellent'),
-        ('good', 'Good'),
-        ('average', 'Average'),
-        ('poor', 'Poor'),
-    ], string="Public Transport Access", tracking=True)
     company_id = fields.Many2one(
         "res.company",
         string="Property Management Company",
@@ -110,7 +91,7 @@ class Property(models.Model):
     currency_id = fields.Many2one(
         "res.currency", string="Currency", related="company_id.currency_id", tracking=True
     )
-    image = fields.Binary(string="Image", help="Image of the property", tracking=True)
+    image = fields.Binary(string="Image", help="Image of the property")
 
 
     description = fields.Text(
@@ -250,6 +231,78 @@ class Property(models.Model):
     legal_representative = fields.Many2one(
         "res.partner", string="Representative", help="Name of the legal representative or property manager", tracking=True
     )
+    disclosure = fields.Text(
+        string="Ownership Disclosure",
+        help="Examples of Disclosures.\n"
+             "- Financial Obligations': Who is responsible for property taxes, maintenance, and mortgage payments? \n"
+             "- Sale Conditions':  Can one owner sell their share without the other’s consent? \n"
+             "- Legal Restrictions': legal agreements or restrictions affecting the property? \n"
+             "- Dispute Resolution': Handling of conflicts between owners? \n"
+             "- Encumbrances': loans or liens against the property? \n",
+    tracking=True
+    )
+
+    security_level = fields.Selection([
+        ('poor', 'Poor'),
+        ('average', 'Average'),
+        ('good', 'Good'),
+        ('excellent', 'Excellent'),
+    ], string="Security Level",tracking=True)
+
+    noise_level = fields.Selection([
+        ('quiet', 'Quiet'),
+        ('moderate', 'Moderate'),
+        ('noisy', 'Noisy'),
+
+    ], string="Noise Level",tracking=True)
+    public_transport = fields.Selection([
+        ('none', 'None'),
+        ('limited', 'Limited'),
+        ('moderate', 'Moderate'),
+        ('good', 'Good'),
+    ], string="Public Transport ", tracking=True)
+
+    traffic_conditions = fields.Selection([
+        ('light', 'Light'),
+        ('moderate', 'Moderate'),
+        ('heavy', 'Heavy')
+    ], string="Traffic Conditions", tracking=True)
+
+    air_quality = fields.Selection([
+        ('good', 'Good'),
+        ('moderate', 'Moderate'),
+        ('poor', 'Poor')
+    ], string="Air Quality", tracking=True)
+
+    road_conditions = fields.Selection([
+        ('paved', 'Paved'),
+        ('gravel', 'Gravel'),
+        ('dirt', 'Dirt')
+    ], string="Road Conditions", tracking=True)
+
+    street_lighting = fields.Selection([
+        ('well_lit', 'Well lit'),
+        ('dim', 'Dim'),
+        ('poor', 'Poor')
+    ], string="Street Lighting", tracking=True)
+
+    water_supply = fields.Selection([
+        ('stable', 'Stable'),
+        ('occasional_shortages', 'Occasional Shortages'),
+        ('frequent_issues', 'Frequent Issues')
+    ], string="Water Supply", tracking=True)
+
+    network_coverage = fields.Selection([
+        ('good', 'Good'),
+        ('average', 'Average'),
+        ('poor', 'Poor')
+    ], string="Network Coverage", tracking=True)
+
+    power_outage = fields.Selection([
+        ('rare', 'Rare'),
+        ('occasional', 'Occasional'),
+        ('frequent', 'Frequent')
+    ], string="Power Outage", tracking=True)
 
     @api.model_create_multi
     def create(self, vals_list):
