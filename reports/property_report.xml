@@ -85,7 +85,7 @@
                                         <strong>Property Type</strong>
                                     </td>
                                     <td>
-                                        <t t-esc="data['property_type']"/>
+                                        <t t-esc="data['property_type_id']"/>
                                     </td>
                                     <td>
                                         <strong>Property Measurement</strong>

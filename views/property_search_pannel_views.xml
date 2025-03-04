@@ -10,7 +10,7 @@
             <search position="inside">
                 <searchpanel>
                     <field name="state" string="Status" enable_counters="1"/>
-                    <field name="property_type" string="Property Type"
+                    <field name="property_type_id" string="Property Type"
                            enable_counters="1"/>
                 </searchpanel>
             </search>

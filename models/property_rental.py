@@ -19,8 +19,8 @@ class PropertyRental(models.Model):
         required=True,
         help='The property to be rented',
         domain="[('state','=','available'),('sale_rent','=','for_tenancy')]")
-    owner_id = fields.Many2one('res.partner', string='Land Lord',
-                               related='property_id.landlord_id', store=True,
+    owner_id = fields.Many2one('res.partner', string='Owner',
+                               related='property_id.owner_id', store=True,
                                help='The owner / land lord of the property')
     rent_price = fields.Monetary(string='Rent Price',
                                  related='property_id.rent_month',

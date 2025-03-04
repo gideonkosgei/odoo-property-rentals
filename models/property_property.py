@@ -1,6 +1,4 @@
-
 from odoo import api, fields, models, _
-
 
 class Property(models.Model):
     """A class for the model property to represent the property"""
@@ -10,7 +8,7 @@ class Property(models.Model):
     _inherit = ["mail.thread", "mail.activity.mixin"]
 
     name = fields.Char(
-        string="Name", required=True, copy=False, help="Name of the Property"
+        string="Name", required=True, copy=False, help="Name of the Property",tracking=True
     )
     code = fields.Char(
         string="Reference",
@@ -19,18 +17,36 @@ class Property(models.Model):
         default=lambda self: _("New"),
         help="Sequence/code for the property",
     )
-    property_type = fields.Selection(
-        [
-            ("residential", "Residential"),
-            ("commercial", "Commercial"),
-            ("mixed", "Mixed"),
-            ("industry", "Industrial"),
-            ("land", "Land"),
-        ],
+
+    property_type_id = fields.Many2one(
+        "property.type",
         string="Property Type",
+        domain=[("active", "=", True)],
         required=True,
-        help="The type of the property",
+        tracking = True
     )
+
+    property_structure_id = fields.Many2one(
+        "property.structure",
+        string="Building Structure",
+        # domain=[('property_type_id', '=', property_type_id),("active", "=", True)],
+        domain="[('property_type_id', '=', property_type_id), ('active', '=', True)]",
+        required=True, tracking=True
+    )
+
+    security_level = fields.Selection([
+        ('low', 'Low'),
+        ('medium', 'Medium'),
+        ('high', 'High'),
+    ], string="Security Level")
+
+    noise_level = fields.Selection([
+        ('quiet', 'Quiet'),
+        ('moderate', 'Moderate'),
+        ('noisy', 'Noisy'),
+
+    ], string="Noise Level")
+
     state = fields.Selection(
         [
             ("draft", "Draft"),
@@ -41,6 +57,7 @@ class Property(models.Model):
         ],
         required=True,
         string="Status",
+        tracking = True,
         default="draft",
         help="* The 'Draft' status is used when the property is in draft.\n"
         "* The 'Available' status is used when the property is "
@@ -48,16 +65,17 @@ class Property(models.Model):
         "* The 'Rented' status is used when the property is rented.\n"
         "* The 'sold' status is used when the property is sold.\n",
     )
-    street = fields.Char(string="Street", required=True, help="The street name")
-    street2 = fields.Char(string="Street2", help="The street2 name")
-    zip = fields.Char(string="Zip", change_default=True, help="Zip code for the place")
-    city = fields.Char(string="City", help="The name of the city")
+    location = fields.Char(string="Location", help="The location of the property", tracking=True)
+    street = fields.Char(string="Street", required=True, help="The street name", tracking=True)
+    street2 = fields.Char(string="Street2", help="The street2 name", tracking=True)
+    zip = fields.Char(string="Zip", change_default=True, help="Zip code for the place", tracking=True)
+    city = fields.Char(string="City", help="The name of the city", tracking=True)
     country_id = fields.Many2one(
         "res.country",
         string="Country",
         ondelete="restrict",
         required=True,
-        help="The name of the country",
+        help="The name of the country", tracking=True
     )
     state_id = fields.Many2one(
         "res.country.state",
@@ -65,45 +83,45 @@ class Property(models.Model):
         ondelete="restrict",
         tracking=True,
         domain="[('country_id', '=?', country_id)]",
-        help="The name of the state",
+        help="The name of the state"
     )
-    latitude = fields.Float(
-        string="Latitude",
-        digits=(16, 5),
-        help="The latitude of where the property is " "situated",
+
+    neighbourhood = fields.Char(string="Neighbourhood", tracking=True)
+    location_url = fields.Char(string="Location Link", help="Enter a Google Maps or OpenStreetMap link", tracking=True)
+    landmark = fields.Text(
+        string="Nearby Landmarks",
+        help="Add notable feature of the landscape or a structure that stands out and is easily recognizable",
+        tracking=True
     )
-    longitude = fields.Float(
-        string="Longitude",
-        digits=(16, 5),
-        help="The longitude of where the property is " "situated",
-    )
+
+    main_road = fields.Char(string="Main Road",  help="Main road to the property", tracking=True)
+
+    public_transport = fields.Selection([
+        ('excellent', 'Excellent'),
+        ('good', 'Good'),
+        ('average', 'Average'),
+        ('poor', 'Poor'),
+    ], string="Public Transport Access", tracking=True)
     company_id = fields.Many2one(
         "res.company",
         string="Property Management Company",
         default=lambda self: self.env.company,
     )
     currency_id = fields.Many2one(
-        "res.currency", string="Currency", related="company_id.currency_id"
+        "res.currency", string="Currency", related="company_id.currency_id", tracking=True
     )
-    image = fields.Binary(string="Image", help="Image of the property")
-    construct_year = fields.Char(
-        string="Construct Year", size=4, help="Year of construction of the property"
-    )
-    license_no = fields.Char(
-        string="License No.", help="License number of the property"
-    )
-    landlord_id = fields.Many2one(
-        "res.partner", string="LandLord", help="The owner of the property"
-    )
+    image = fields.Binary(string="Image", help="Image of the property", tracking=True)
+
+
     description = fields.Text(
-        string="Description", help="A brief description about the property"
+        string="Description", help="A brief description about the property", tracking=True
     )
-    responsible_id = fields.Many2one(
-        "res.users",
-        string="Responsible Person",
-        help="The responsible person for " "this property",
-        default=lambda self: self.env.user,
-    )
+    # responsible_id = fields.Many2one(
+    #     "res.users",
+    #     string="Responsible Person",
+    #     help="The responsible person for " "this property",
+    #     default=lambda self: self.env.user,
+    # )
     type_residence = fields.Char(
         string="Type of Residence", help="The type of the residence"
     )
@@ -141,9 +159,9 @@ class Property(models.Model):
     usage = fields.Char(
         string="Used For", help="For what purpose is this property used for"
     )
-    location = fields.Char(string="Location", help="The location of the property")
+
     property_image_ids = fields.One2many(
-        "property.image", "property_id", string="Property Images"
+        "property.image", "property_id", string="Property Images", tracking=True
     )
     area_measurement_ids = fields.One2many(
         "property.area.measure", "property_id", string="Area Measurement"
@@ -185,6 +203,54 @@ class Property(models.Model):
         string="Rent/Month", help="Rent price per month", tracking=True
     )
 
+    #Insurance Details
+    insurance_policy_number = fields.Char(string="Policy Number", help="Insurance policy Number" , tracking=True)
+    insurance_provider = fields.Char(string="Insurance Provider", help="Name of the company providing the insurance" , tracking=True)
+    insurance_coverage = fields.Text(string="Coverage Details", help="Description of what the insurance policy covers" , tracking=True)
+    insurance_document = fields.Binary(string="Insurance Document",attachment=True,help="Upload a scanned copy or digital version of the insurance document" )
+    insurance_document_name = fields.Char(string="Document Name",help="Name of the uploaded insurance document" )
+
+    owner_id = fields.Many2one(
+        "res.partner", string="Owner",required=True, help="The owner of the property",tracking=True
+    )
+    ownership_type = fields.Selection(
+        [
+            ("sole", "Sole Ownership"),
+            ("joint", "Joint Ownership"),
+            ("corporate", "Corporate Ownership"),
+        ],
+        string="Ownership Type",
+        required=True,
+        tracking = True,
+        help="Type of ownership: Sole, Joint, or Corporate"
+    )
+
+    power_of_attorney = fields.Binary(
+        string="POA Document",
+        attachment=True,
+        help="Upload a document granting power of attorney"
+    )
+
+    power_of_attorney_name = fields.Char(
+        string="POA File Name",
+        help="Name of the uploaded power of attorney document"
+    )
+
+    ownership_document = fields.Binary(
+        string="Ownership Document",
+        attachment=True,
+        help="Upload proof of ownership Document(s)",
+    )
+
+    ownership_document_document_name = fields.Char(
+        string="Ownership Document Name",
+        help="Name of the uploaded proof of ownership document",
+    )
+
+    legal_representative = fields.Many2one(
+        "res.partner", string="Representative", help="Name of the legal representative or property manager", tracking=True
+    )
+
     @api.model_create_multi
     def create(self, vals_list):
         for vals in vals_list:
@@ -200,43 +266,23 @@ class Property(models.Model):
         for rec in self:
             rec.total_sq_feet = sum(rec.mapped("area_measurement_ids").mapped("area"))
 
-    @api.model
-    def _geo_localize(self, street="", zip="", city="", state="", country=""):
-        """Generate Latitude and Longitude based on address"""
-        geo_obj = self.env["base.geocoder"]
-        search = geo_obj.geo_query_address(
-            street=street, zip=zip, city=city, state=state, country=country
-        )
-        result = geo_obj.geo_find(search, force_country=country)
-        if result is None:
-            search = geo_obj.geo_query_address(city=city, state=state, country=country)
-            result = geo_obj.geo_find(search, force_country=country)
-        return result
-
-    @api.onchange("street", "zip", "city", "state_id", "country_id")
-    def _onchange_address(self):
-        """Writing Latitude and Longitude to the record"""
-        for rec in self.with_context(lang="en_US"):
-            result = rec._geo_localize(
-                rec.street, rec.zip, rec.city, rec.state_id.name, rec.country_id.name
-            )
-            if result:
-                rec.write(
-                    {
-                        "latitude": result[0],
-                        "longitude": result[1],
-                    }
-                )
-
     def action_get_map(self):
-        """Redirects to google map to show location based on latitude
-        and longitude"""
-        return {
-            "type": "ir.actions.act_url",
-            "name": "View Map",
-            "target": "self",
-            "url": "/map/%s/%s" % (self.latitude, self.longitude),
-        }
+        """Redirects to Google Maps using the provided location URL"""
+        for record in self:
+            if record.location_url:
+                return {
+                    "type": "ir.actions.act_url",
+                    "name": "View Map",
+                    "target": "new",  # Opens in a new tab
+                    "url": record.location_url,
+                }
+            else:
+                return {
+                    "warning": {
+                        "title": "Missing Location",
+                        "message": "No Google Maps URL provided for this property.",
+                    }
+                }
 
     def action_available(self):
         """Set the state to available"""
@@ -261,3 +307,8 @@ class Property(models.Model):
             "type": "ir.actions.act_window",
             "domain": [("property_id", "=", self.id)],
         }
+
+    @api.onchange("property_type_id")
+    def _onchange_property_type_id(self):
+        """Clears the building structure when property type changes"""
+        self.property_structure_id = False

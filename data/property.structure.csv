@@ -1,0 +1,26 @@
+"property_type_id.id","property_structure","active"
+1,"Apartment (Flat)",1
+1,"Bungalow(Single-story,standalone house)",1
+1,"Villa",1
+1,"Penthouse",1
+1,"Duplex",1
+1,"Triplex/Quadplex",1
+1,"Townhouse (Row House)",1
+1,"Condominium (Condo)",1
+1,"Studio Apartment/Single-room",1
+1,"Loft",1
+2,"Office Space(Corporate buildings,coworking spaces)",1
+2,"Retail Space(Shops,malls,showrooms)",1
+2,"Warehouse",1,
+2,"Mixed-Use(residential,commercial,office spaces)",1
+3,"Serviced Apartment",1
+3,"Hostel/PG (Paying Guest)",1
+3,"Resort",1
+3,"Farmhouse"
+3,"Mansion"
+4,"Residential Land",1
+4,"Commercial Land",1
+4,"Agricultural(Ranch,Farmland,..etc)",1
+4,"Recreational & Public(Parks,Golf Courses,Sports, ..etc)",1
+4,"Special Use(Churches, mosques, temples, ..etc)",1
+
