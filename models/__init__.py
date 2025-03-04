@@ -6,10 +6,14 @@ from . import property_auction_line
 from . import property_commission
 from . import property_facility
 from . import property_image
+from . import property_amenity
+from . import property_public_service
 from . import property_nearby_connectivity
 from . import property_property
 from . import property_rental
 from . import property_sale
 from . import property_tag
+from . import property_type
+from . import property_structure
 from . import rental_bill
 from . import res_partner

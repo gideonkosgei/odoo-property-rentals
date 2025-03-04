@@ -5,8 +5,7 @@
         <field name="name">Property</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">property.property</field>
-<!--        <field name="view_mode">list,kanban,form,activity</field>-->
-        <field name="view_mode">kanban,list,form</field>
+        <field name="view_mode">kanban,list,form,activity</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
                 Create Your First Property!
@@ -31,8 +30,8 @@
             <list>
                 <field name="name"/>
                 <field name="code"/>
-                <field name="property_type"/>
-                <field name="landlord_id"/>
+                <field name="property_type_id"/>
+                <field name="owner_id"/>
                 <field name="street"/>
                 <field name="city"/>
             </list>
@@ -58,7 +57,7 @@
                         <button name="action_get_map" string='Locate'
                                 type="object"
                                 class="oe_stat_button" icon="fa-map-marker"
-                                invisible="latitude == False and longitude == False"/>
+                                invisible="location_url == False"/>
                         <button name="action_property_sale_view" type="object"
                                 class="oe_stat_button"
                                 icon="fa-dollar" string="Sale"
@@ -72,7 +71,7 @@
                     <field name="image" widget="image" class="oe_avatar"/>
                     <div class="oe_title">
                         <h1>
-                            <field name="name"/>
+                            <field name="name" placeholder="Enter Property Name"/>
                         </h1>
                         <h3>
                             <field name="code"/>
@@ -81,63 +80,30 @@
                     </div>
                     <group>
                         <group>
-                            <field name="property_type"/>
-                            <field name="construct_year"/>
+                            <field name="property_type_id" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="property_structure_id" options="{'no_create': True, 'no_open': True}"/>
                             <field name="property_tags"
                                    widget="many2many_tags"/>
                         </group>
                         <group>
-                            <field name="license_no"/>
-                            <field name="responsible_id"/>
+<!--                            <field name="responsible_id"/>-->
                         </group>
                     </group>
-
-
-
-
-
                     <notebook>
-                        <page string="Property Details">
-                            <group invisible="property_type != 'residential'">
+                        <page string="Ownership">
+                            <group>
                                 <group>
-                                    <field name="type_residence"/>
-                                    <field name="total_floor"/>
-                                    <field name="furnishing"/>
-                                </group>
-                                <group>
-                                    <field name="bedroom"/>
-                                    <field name="bathroom"/>
-                                    <field name="parking"/>
-                                </group>
-                            </group>
-                            <group invisible="property_type != 'land'">
-                                <group>
-                                    <field name="land_name"/>
-                                </group>
-                                <group>
-                                    <field name="land_area"/>
-                                </group>
-                            </group>
-                            <group invisible="property_type != 'industry'">
-                                <group>
-                                    <field name="industry_name"/>
-                                    <field name="usage"/>
-                                </group>
-                                <group>
-                                    <field name="location"/>
-                                </group>
-                            </group>
-                            <group invisible="property_type != 'commercial'">
-                                <group>
-                                    <field name="shop_name"/>
-                                    <field name="usage"/>
-                                </group>
-                                <group>
-                                    <field name="total_floor"/>
+                                    <field name="owner_id"/>
+                                    <field name="ownership_type"/>
+                                    <field name="power_of_attorney" filename="insurance_document_name"/>
+                                    <field name="power_of_attorney_name" invisible="1"/>
+                                    <field name="legal_representative" />
+                                    <field name="ownership_document" filename="ownership_document_document_name"/>
+                                    <field name="ownership_document_document_name" invisible="1"/>
                                 </group>
                             </group>
                         </page>
-                        <page string="Address Details">
+                        <page string="Location">
                             <group>
                                 <group>
                                     <label for="street" string="Address"/>
@@ -157,8 +123,63 @@
                                                class="o_address_country"
                                                options='{"no_open": True, "no_create": True}'/>
                                     </div>
-                                    <field name="latitude"/>
-                                    <field name="longitude"/>
+                                    <field name="location_url" widget="url"/>
+                                </group>
+                                <group>
+                                    <field name="neighborhood"/>
+                                    <field name="main_road"/>
+                                    <field name="landmark" widget="text" placeholder="Add landmarks..."/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Insurance">
+                            <group>
+                                <group>
+                                    <field name="insurance_policy_number"/>
+                                    <field name="insurance_provider"/>
+                                    <field name="insurance_coverage" widget="text"/>
+                                    <field name="insurance_document" filename="insurance_document_name"/>
+                                    <field name="insurance_document_name" invisible="1"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Property Details">
+                            <group invisible="property_type_id != 1">
+                                <group>
+                                    <field name="type_residence"/>
+                                    <field name="total_floor"/>
+                                    <field name="furnishing"/>
+                                </group>
+                                <group>
+                                    <field name="bedroom"/>
+                                    <field name="bathroom"/>
+                                    <field name="parking"/>
+                                </group>
+                            </group>
+                            <group invisible="property_type_id != 4">
+                                <group>
+                                    <field name="land_name"/>
+                                </group>
+                                <group>
+                                    <field name="land_area"/>
+                                </group>
+                            </group>
+                            <group invisible="property_type_id != 3">
+                                <group>
+                                    <field name="industry_name"/>
+                                    <field name="usage"/>
+                                </group>
+                                <group>
+                                    <field name="location"/>
+                                </group>
+                            </group>
+                            <group invisible="property_type_id != 2">
+                                <group>
+                                    <field name="shop_name"/>
+                                    <field name="usage"/>
+                                </group>
+                                <group>
+                                    <field name="total_floor"/>
                                 </group>
                             </group>
                         </page>
@@ -167,7 +188,6 @@
                                 <field name="sale_rent"/>
                                 <field name="unit_price"  invisible="sale_rent != 'for_sale'"/>
                                 <field name="rent_month" invisible="sale_rent != 'for_tenancy'"/>
-                                <field name="landlord_id"/>
                             </group>
                         </page>
                         <page string="Description">
@@ -241,7 +261,7 @@
                                 </list>
                             </field>
                         </page>
-                        <page string="Nearby Connectivity">
+                        <page string="Public Services">
                             <field name="nearby_connectivity_ids">
                                 <list editable="bottom">
                                     <field name="name"/>
@@ -268,7 +288,7 @@
                 <field name="name"/>
                 <field name="code"/>
                 <field name="image"/>
-                <field name="property_type"/>
+                <field name="property_type_id"/>
                 <field name="street"/>
                 <field name="city"/>
                 <field name="state_id"/>
@@ -290,9 +310,9 @@
                                                 <field name="name"/>
                                             </h3>
                                         </strong>
-                                        <span t-if="record.property_type.raw_value"
+                                        <span t-if="record.property_type_id.raw_value"
                                               class="o_kanban_record_subtitle">
-                                            <field name="property_type"/>
+                                            <field name="property_type_id"/>
                                         </span>
                                     </div>
                                 </div>
