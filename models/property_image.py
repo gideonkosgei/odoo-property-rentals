@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from odoo import fields, models
 
-
 class PropertyImages(models.Model):
     """A class for the model property image to represent
     the related images for a property"""

@@ -29,7 +29,6 @@ class Property(models.Model):
     property_structure_id = fields.Many2one(
         "property.structure",
         string="Building Structure",
-        # domain=[('property_type_id', '=', property_type_id),("active", "=", True)],
         domain="[('property_type_id', '=', property_type_id), ('active', '=', True)]",
         required=True, tracking=True
     )
@@ -188,8 +187,6 @@ class Property(models.Model):
     insurance_policy_number = fields.Char(string="Policy Number", help="Insurance policy Number" , tracking=True)
     insurance_provider = fields.Char(string="Insurance Provider", help="Name of the company providing the insurance" , tracking=True)
     insurance_coverage = fields.Text(string="Coverage Details", help="Description of what the insurance policy covers" , tracking=True)
-    insurance_document = fields.Binary(string="Insurance Document",attachment=True,help="Upload a scanned copy or digital version of the insurance document" )
-    insurance_document_name = fields.Char(string="Document Name",help="Name of the uploaded insurance document" )
 
     owner_id = fields.Many2one(
         "res.partner", string="Owner",required=True, help="The owner of the property",tracking=True
@@ -204,28 +201,6 @@ class Property(models.Model):
         required=True,
         tracking = True,
         help="Type of ownership: Sole, Joint, or Corporate"
-    )
-
-    power_of_attorney = fields.Binary(
-        string="POA Document",
-        attachment=True,
-        help="Upload a document granting power of attorney"
-    )
-
-    power_of_attorney_name = fields.Char(
-        string="POA File Name",
-        help="Name of the uploaded power of attorney document"
-    )
-
-    ownership_document = fields.Binary(
-        string="Ownership Document",
-        attachment=True,
-        help="Upload proof of ownership Document(s)",
-    )
-
-    ownership_document_document_name = fields.Char(
-        string="Ownership Document Name",
-        help="Name of the uploaded proof of ownership document",
     )
 
     legal_representative = fields.Many2one(
@@ -303,6 +278,10 @@ class Property(models.Model):
         ('occasional', 'Occasional'),
         ('frequent', 'Frequent')
     ], string="Power Outage", tracking=True)
+
+    document_attachment_ids = fields.One2many(
+        "property.document.attachment", "property_id", string="Document Attachments"
+    )
 
     @api.model_create_multi
     def create(self, vals_list):
