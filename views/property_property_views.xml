@@ -95,11 +95,8 @@
                                 <group>
                                     <field name="owner_id"/>
                                     <field name="ownership_type"/>
-                                    <field name="power_of_attorney" filename="insurance_document_name"/>
-                                    <field name="power_of_attorney_name" invisible="1"/>
-                                    <field name="legal_representative" />
-                                    <field name="ownership_document" filename="ownership_document_document_name"/>
-                                    <field name="ownership_document_document_name" invisible="1"/>
+                                     <field name="legal_representative" placeholder="Nominated lawyer or property manager" />
+                                    <field name="disclosure" widget="text"/>
                                 </group>
                             </group>
                         </page>
@@ -126,10 +123,30 @@
                                     <field name="location_url" widget="url"/>
                                 </group>
                                 <group>
-                                    <field name="neighborhood"/>
+                                    <field name="neighbourhood"/>
                                     <field name="main_road"/>
                                     <field name="landmark" widget="text" placeholder="Add landmarks..."/>
                                 </group>
+                            </group>
+                        </page>
+                        <page string="Location Factors">
+                            <group>
+                                <group>
+                                    <field name="public_transport"/>
+                                    <field name="traffic_conditions"/>
+                                    <field name="road_conditions"/>
+                                    <field name="street_lighting"/>
+                                    <field name="noise_level"/>
+
+                                </group>
+                                <group>
+                                    <field name="air_quality"/>
+                                    <field name="security_level"/>
+                                    <field name="power_outage"/>
+                                    <field name="network_coverage"/>
+                                    <field name="water_supply"/>
+                                </group>
+
                             </group>
                         </page>
                         <page string="Insurance">
@@ -137,9 +154,7 @@
                                 <group>
                                     <field name="insurance_policy_number"/>
                                     <field name="insurance_provider"/>
-                                    <field name="insurance_coverage" widget="text"/>
-                                    <field name="insurance_document" filename="insurance_document_name"/>
-                                    <field name="insurance_document_name" invisible="1"/>
+                                     <field name="insurance_coverage" widget="text"/>
                                 </group>
                             </group>
                         </page>
@@ -190,77 +205,77 @@
                                 <field name="rent_month" invisible="sale_rent != 'for_tenancy'"/>
                             </group>
                         </page>
-                        <page string="Description">
-                            <field name="description"/>
-                        </page>
-                        <page string="Images">
-                            <field name="property_image_ids">
-                                <kanban>
-                                    <field name="id"/>
-                                    <field name="name"/>
-                                    <field name="image"/>
-                                    <field name="description"/>
-                                    <templates>
-                                        <t t-name="kanban-box">
-                                            <div t-attf-class="oe_kanban_global_click">
-                                                <div class="o_kanban_image">
-                                                    <field name="image"
-                                                           widget="image"
-                                                           class="oe_avatar"/>
-                                                </div>
-                                                <div class="oe_kanban_details">
-                                                    <t class="o_kanban_record_title">
-                                                        <strong>
-                                                            <field name="name"/>
-                                                        </strong>
-                                                        <br/>
-                                                        <field name="description"/>
-                                                    </t>
-                                                </div>
-                                            </div>
-                                        </t>
-                                    </templates>
-                                </kanban>
-                                <form>
-                                    <sheet>
-                                        <group>
-                                            <group>
-                                                <field name="name"/>
-                                                <field name="description"/>
-                                            </group>
-                                            <group>
-                                                <field name="image"
-                                                       widget="image"
-                                                       class="oe_avatar"/>
-                                            </group>
-                                        </group>
-                                    </sheet>
-                                </form>
-                            </field>
-                        </page>
-                        <page string="Measurement" name="measurement">
-                            <field name="area_measurement_ids">
-                                <list editable="bottom">
-                                    <field name="name"/>
-                                    <field name="length"/>
-                                    <field name="width"/>
-                                    <field name="height"/>
-                                    <field name="area"/>
-                                </list>
-                            </field>
-                            <h2 class="oe_subtotal_footer oe_right">
-                                <group>
-                                    <field name="total_sq_feet"/>
-                                </group>
-                            </h2>
-                        </page>
-                        <page string="Facilities">
-                            <field name="facility_ids">
-                                <list>
-                                    <field name="facility"/>
-                                </list>
-                            </field>
-                        </page>
+<!--                        <page string="Description">-->
+<!--                            <field name="description"/>-->
+<!--                        </page>-->
+<!--                        <page string="Images">-->
+<!--                            <field name="property_image_ids">-->
+<!--                                <kanban>-->
+<!--                                    <field name="id"/>-->
+<!--                                    <field name="name"/>-->
+<!--                                    <field name="image"/>-->
+<!--                                    <field name="description"/>-->
+<!--                                    <templates>-->
+<!--                                        <t t-name="kanban-box">-->
+<!--                                            <div t-attf-class="oe_kanban_global_click">-->
+<!--                                                <div class="o_kanban_image">-->
+<!--                                                    <field name="image"-->
+<!--                                                           widget="image"-->
+<!--                                                           class="oe_avatar"/>-->
+<!--                                                </div>-->
+<!--                                                <div class="oe_kanban_details">-->
+<!--                                                    <t class="o_kanban_record_title">-->
+<!--                                                        <strong>-->
+<!--                                                            <field name="name"/>-->
+<!--                                                        </strong>-->
+<!--                                                        <br/>-->
+<!--                                                        <field name="description"/>-->
+<!--                                                    </t>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </t>-->
+<!--                                    </templates>-->
+<!--                                </kanban>-->
+<!--                                <form>-->
+<!--                                    <sheet>-->
+<!--                                        <group>-->
+<!--                                            <group>-->
+<!--                                                <field name="name"/>-->
+<!--                                                <field name="description"/>-->
+<!--                                            </group>-->
+<!--                                            <group>-->
+<!--                                                <field name="image"-->
+<!--                                                       widget="image"-->
+<!--                                                       class="oe_avatar"/>-->
+<!--                                            </group>-->
+<!--                                        </group>-->
+<!--                                    </sheet>-->
+<!--                                </form>-->
+<!--                            </field>-->
+<!--                        </page>-->
+<!--                        <page string="Measurement" name="measurement">-->
+<!--                            <field name="area_measurement_ids">-->
+<!--                                <list editable="bottom">-->
+<!--                                    <field name="name"/>-->
+<!--                                    <field name="length"/>-->
+<!--                                    <field name="width"/>-->
+<!--                                    <field name="height"/>-->
+<!--                                    <field name="area"/>-->
+<!--                                </list>-->
+<!--                            </field>-->
+<!--                            <h2 class="oe_subtotal_footer oe_right">-->
+<!--                                <group>-->
+<!--                                    <field name="total_sq_feet"/>-->
+<!--                                </group>-->
+<!--                            </h2>-->
+<!--                        </page>-->
+<!--                        <page string="Facilities">-->
+<!--                            <field name="facility_ids">-->
+<!--                                <list>-->
+<!--                                    <field name="facility"/>-->
+<!--                                </list>-->
+<!--                            </field>-->
+<!--                        </page>-->
                         <page string="Public Services">
                             <field name="nearby_connectivity_ids">
                                 <list editable="bottom">
@@ -270,8 +285,18 @@
                                 </list>
                             </field>
                         </page>
+                        <page string="Documents">
+                            <field name="document_attachment_ids">
+                                <list editable="bottom">
+                                        <field name="document_category_id" options="{'no_create': True, 'no_open': True}"/>
+                                        <field name="document_id" options="{'no_create': True, 'no_open': True}"/>
+                                        <field name="document_file" filename="document_filename"/>
+                                        <field name="document_filename"/>
+                                        <field name="document_description"/>
+                                </list>
+                            </field>
+                        </page>
                     </notebook>
-
                 </sheet>
                 <chatter/>
             </form>

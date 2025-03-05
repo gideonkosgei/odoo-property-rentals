@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="property_document_action" model="ir.actions.act_window">
+        <field name="name">Property Document</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">property.document</field>
+        <field name="view_mode">list,form,activity</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Add Document!
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="property_document_menu" name="Documents" parent="property_configuration_menu"
+              action="property_document_action" sequence="25"/>
+
+    <record id="property_document_view_tree" model="ir.ui.view">
+            <field name="name">property.document.view.list</field>
+            <field name="model">property.document</field>
+            <field name="arch" type="xml">
+                <list editable="bottom">
+                    <field name="document_category_id"/>
+                    <field name="name"/>
+                    <field name="description" widget="text"/>
+                    <field name="active"/>
+                </list>
+            </field>
+        </record>
+
+</odoo>

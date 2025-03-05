@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="property_document_category_action" model="ir.actions.act_window">
+        <field name="name">Property Document Category</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">property.document.category</field>
+        <field name="view_mode">list,form,activity</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Add Document Category!
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="property_document_category_menu" name="Document Categories" parent="property_configuration_menu"
+              action="property_document_category_action" sequence="24"/>
+
+    <record id="property_document_category_view_tree" model="ir.ui.view">
+            <field name="name">property.document.category.view.list</field>
+            <field name="model">property.document.category</field>
+            <field name="arch" type="xml">
+                <list editable="bottom">
+                    <field name="name"/>
+                    <field name="active"/>
+                </list>
+            </field>
+        </record>
+
+</odoo>

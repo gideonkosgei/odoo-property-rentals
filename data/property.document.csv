@@ -1,0 +1,63 @@
+"document_category_id.id","name","description","active"
+1,"Tax Identification Number (TIN)","For tax and legal compliance.",1
+1,"Government ID / Passport","Verification of owner(s).",1
+1,"Property Tax Receipts","Proof of tax payments.",1
+2,"Title Deed","Proof of property ownership.",1
+2,"Property Registration Certificate","Property Registration Certificate",1
+2,"Sale Agreement","Contract between buyer and seller.",1
+2,"Encumbrance Certificate","Proof that the property is free from legal liabilities.",1
+2,"Inheritance Certificate / Will","Inheritance Certificate / Will",1
+2,"Power of Attorney (POA)","Power of Attorney (POA) If the property is managed by someone else.",1
+2,"Joint Ownership Agreement","Specifies ownership percentages for multiple owners.",1
+3,"Lease Agreement","Agreement between landlord and tenant.",1
+3,"Tenant Registration Form","Tenant Registration Form",1
+3,"Rent Receipts","Proof of payment history.",1
+3,"Security Deposit Agreement","Terms for refundable deposit.",1
+3,"Eviction Notice","Legal notice in case of disputes.",1
+3,"Sublease Agreement","Sublease Agreement",1
+3,"Rent Control Compliance Certificate","Rent Control Compliance Certificate",1
+3,"Termination of Lease Agreement","Termination of Lease Agreement",1
+3,"Tenant Background Check Report","Tenant Background Check Report",1
+4,"Zoning & Land Use Permits","Determines the permitted use of the property.",1
+4,"Environmental Compliance Certificate","Environmental Compliance Certificate",1
+4,"Court Orders / Legal Disputes Documents","Court Orders / Legal Disputes Documents",1
+4,"No Objection Certificate (NOC)","From various authorities for property transactions.",1
+4,"Affidavit of Ownership","Declaration of rightful ownership.",1
+4,"Right of Way Agreement","Specify If the property has shared or limited access.",1
+4,"Easement Agreement","Specify If third parties have rights to use parts of the property.",1
+4,"Litigation Clearance Certificate","Confirms no ongoing legal disputes.",1
+5,"Building Plan Approval","Approval from the local authority for construction.",1
+5,"Occupancy Certificate","Confirms that the building is safe for occupancy.",1
+5,"Fire Safety Certificate","Compliance with fire safety standards.",1
+5,"Health & Safety Compliance Certificate","Health & Safety Compliance Certificate",1
+5,"Business License (For Commercial Properties)","Business License (For Commercial Properties)",1
+6,"Property Insurance Policy","Coverage details for the property.",1
+6,"Liability Insurance Certificate","Liability Insurance Certificate",1
+6,"Disaster Insurance","Coverage for natural disasters.",1
+6,"Title Insurance Policy","Protects against title-related legal issues.",1
+6,"Theft / Burglary Insurance Policy","Protects against theft-related losses.",1
+7,"Electricity / Water / Gas Connection Approvals","Proof of registered utility services.",1
+7,"Maintenance & Repair Logs","For tracking property upkeep.",1
+7,"Service Contracts (Security, Cleaning, etc.)","Agreements with service providers.",1
+7,"HVAC System Maintenance Logs","Records of air conditioning and heating systems.",1
+7,"Pest Control Reports","Pest Control Reports",1
+7,"Structural Audit Report","Structural audit report to confirms building integrity.",1
+7,"Energy Efficiency Certificate","Energy Efficiency Certificate",1
+8,"Mortgage Deed","Document If the property was purchased with a loan.",1
+8,"Deed of Trust","Document used in some jurisdictions for securing loans.",1
+8,"Gift Deed","Document if property was transferred as a gift.",1
+8,"Partition Deed","Partition Deed",1
+8,"Release Deed","Release document if a co-owner gives up their share of the property.",1
+8,"Capital Gains Tax Certificate","Capital Gains Tax Certificate",1
+8,"Depreciation Schedule","Depreciation Schedule",1
+8,"Rental Income Tax Documents","Rental Income Tax Documents",1
+8,"Loan Repayment Statements","Loan Repayment Statements",1
+8,"Bank Appraisal Report","Property valuation for financial purposes.",1
+9,"Historic Preservation Certificate","Historic Preservation Certificate",1
+9,"Noise Pollution Clearance","Noise Pollution Clearance if the property is in a regulated area.",1
+9,"Hazardous Materials Permit","Hazardous Materials Permit",1
+10,"Security & Surveillance Records","Details of CCTV cameras, alarm systems, etc.",1
+10,"Community Rules & Regulations","Community Rules & Regulations",1
+10,"Disaster Management Plan","Disaster management plan especially for commercial buildings.",1
+10,"Parking Agreement","Parking Agreement if parking spaces are assigned separately.",1
+11,"Other","Other Documents",1

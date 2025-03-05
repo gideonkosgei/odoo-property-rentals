@@ -29,23 +29,9 @@ class Property(models.Model):
     property_structure_id = fields.Many2one(
         "property.structure",
         string="Building Structure",
-        # domain=[('property_type_id', '=', property_type_id),("active", "=", True)],
         domain="[('property_type_id', '=', property_type_id), ('active', '=', True)]",
         required=True, tracking=True
     )
-
-    security_level = fields.Selection([
-        ('low', 'Low'),
-        ('medium', 'Medium'),
-        ('high', 'High'),
-    ], string="Security Level")
-
-    noise_level = fields.Selection([
-        ('quiet', 'Quiet'),
-        ('moderate', 'Moderate'),
-        ('noisy', 'Noisy'),
-
-    ], string="Noise Level")
 
     state = fields.Selection(
         [
@@ -96,12 +82,6 @@ class Property(models.Model):
 
     main_road = fields.Char(string="Main Road",  help="Main road to the property", tracking=True)
 
-    public_transport = fields.Selection([
-        ('excellent', 'Excellent'),
-        ('good', 'Good'),
-        ('average', 'Average'),
-        ('poor', 'Poor'),
-    ], string="Public Transport Access", tracking=True)
     company_id = fields.Many2one(
         "res.company",
         string="Property Management Company",
@@ -110,7 +90,7 @@ class Property(models.Model):
     currency_id = fields.Many2one(
         "res.currency", string="Currency", related="company_id.currency_id", tracking=True
     )
-    image = fields.Binary(string="Image", help="Image of the property", tracking=True)
+    image = fields.Binary(string="Image", help="Image of the property")
 
 
     description = fields.Text(
@@ -207,8 +187,6 @@ class Property(models.Model):
     insurance_policy_number = fields.Char(string="Policy Number", help="Insurance policy Number" , tracking=True)
     insurance_provider = fields.Char(string="Insurance Provider", help="Name of the company providing the insurance" , tracking=True)
     insurance_coverage = fields.Text(string="Coverage Details", help="Description of what the insurance policy covers" , tracking=True)
-    insurance_document = fields.Binary(string="Insurance Document",attachment=True,help="Upload a scanned copy or digital version of the insurance document" )
-    insurance_document_name = fields.Char(string="Document Name",help="Name of the uploaded insurance document" )
 
     owner_id = fields.Many2one(
         "res.partner", string="Owner",required=True, help="The owner of the property",tracking=True
@@ -225,30 +203,84 @@ class Property(models.Model):
         help="Type of ownership: Sole, Joint, or Corporate"
     )
 
-    power_of_attorney = fields.Binary(
-        string="POA Document",
-        attachment=True,
-        help="Upload a document granting power of attorney"
-    )
-
-    power_of_attorney_name = fields.Char(
-        string="POA File Name",
-        help="Name of the uploaded power of attorney document"
-    )
-
-    ownership_document = fields.Binary(
-        string="Ownership Document",
-        attachment=True,
-        help="Upload proof of ownership Document(s)",
-    )
-
-    ownership_document_document_name = fields.Char(
-        string="Ownership Document Name",
-        help="Name of the uploaded proof of ownership document",
-    )
-
     legal_representative = fields.Many2one(
         "res.partner", string="Representative", help="Name of the legal representative or property manager", tracking=True
+    )
+    disclosure = fields.Text(
+        string="Ownership Disclosure",
+        help="Examples of Disclosures.\n"
+             "- Financial Obligations': Who is responsible for property taxes, maintenance, and mortgage payments? \n"
+             "- Sale Conditions':  Can one owner sell their share without the other’s consent? \n"
+             "- Legal Restrictions': legal agreements or restrictions affecting the property? \n"
+             "- Dispute Resolution': Handling of conflicts between owners? \n"
+             "- Encumbrances': loans or liens against the property? \n",
+    tracking=True
+    )
+
+    security_level = fields.Selection([
+        ('poor', 'Poor'),
+        ('average', 'Average'),
+        ('good', 'Good'),
+        ('excellent', 'Excellent'),
+    ], string="Security Level",tracking=True)
+
+    noise_level = fields.Selection([
+        ('quiet', 'Quiet'),
+        ('moderate', 'Moderate'),
+        ('noisy', 'Noisy'),
+
+    ], string="Noise Level",tracking=True)
+    public_transport = fields.Selection([
+        ('none', 'None'),
+        ('limited', 'Limited'),
+        ('moderate', 'Moderate'),
+        ('good', 'Good'),
+    ], string="Public Transport ", tracking=True)
+
+    traffic_conditions = fields.Selection([
+        ('light', 'Light'),
+        ('moderate', 'Moderate'),
+        ('heavy', 'Heavy')
+    ], string="Traffic Conditions", tracking=True)
+
+    air_quality = fields.Selection([
+        ('good', 'Good'),
+        ('moderate', 'Moderate'),
+        ('poor', 'Poor')
+    ], string="Air Quality", tracking=True)
+
+    road_conditions = fields.Selection([
+        ('paved', 'Paved'),
+        ('gravel', 'Gravel'),
+        ('dirt', 'Dirt')
+    ], string="Road Conditions", tracking=True)
+
+    street_lighting = fields.Selection([
+        ('well_lit', 'Well lit'),
+        ('dim', 'Dim'),
+        ('poor', 'Poor')
+    ], string="Street Lighting", tracking=True)
+
+    water_supply = fields.Selection([
+        ('stable', 'Stable'),
+        ('occasional_shortages', 'Occasional Shortages'),
+        ('frequent_issues', 'Frequent Issues')
+    ], string="Water Supply", tracking=True)
+
+    network_coverage = fields.Selection([
+        ('good', 'Good'),
+        ('average', 'Average'),
+        ('poor', 'Poor')
+    ], string="Network Coverage", tracking=True)
+
+    power_outage = fields.Selection([
+        ('rare', 'Rare'),
+        ('occasional', 'Occasional'),
+        ('frequent', 'Frequent')
+    ], string="Power Outage", tracking=True)
+
+    document_attachment_ids = fields.One2many(
+        "property.document.attachment", "property_id", string="Document Attachments"
     )
 
     @api.model_create_multi
