@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from odoo import fields, models
+from odoo import fields, models,  api
 
 
 class PropertyDocumentAttachment(models.Model):
@@ -16,3 +16,7 @@ class PropertyDocumentAttachment(models.Model):
 
     document_filename = fields.Char(string="File", help="Automatically filled when file is uploaded")
     document_description = fields.Text(string='Notes',help='A brief description of the document')
+
+
+
+

@@ -13,6 +13,7 @@ from . import property_property
 from . import property_document
 from . import property_document_category
 from . import property_document_attachment
+from . import property_dynamic_attribute
 from . import property_rental
 from . import property_sale
 from . import property_tag

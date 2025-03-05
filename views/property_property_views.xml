@@ -296,6 +296,16 @@
                                 </list>
                             </field>
                         </page>
+                         <page string="Dynamic Attributes">
+                            <field name="dynamic_attribute_ids">
+                                <list editable="bottom">
+                                    <field name="attribute_key"/>
+                                    <field name="attribute_value"/>
+                                    <field name="notes"/>
+                                </list>
+                            </field>
+                        </page>
+
                     </notebook>
                 </sheet>
                 <chatter/>

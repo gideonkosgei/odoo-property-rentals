@@ -282,6 +282,9 @@ class Property(models.Model):
     document_attachment_ids = fields.One2many(
         "property.document.attachment", "property_id", string="Document Attachments"
     )
+    dynamic_attribute_ids = fields.One2many(
+        "property.dynamic.attribute", "property_id", string="Dynamic Attributes"
+    )
 
     @api.model_create_multi
     def create(self, vals_list):
