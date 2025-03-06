@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="property_dynamic_attribute_action" model="ir.actions.act_window">
+        <field name="name">Property Dynamic Attributes</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">property.dynamic.attribute</field>
+        <field name="view_mode">list,form,activity</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Add Dynamic Attribute!
+            </p>
+        </field>
+    </record>
+
+    <record id="property_dynamic_attribute_view_tree" model="ir.ui.view">
+            <field name="name">property.dynamic.attribute.view.list</field>
+            <field name="model">property.dynamic.attribute</field>
+            <field name="arch" type="xml">
+                <list editable="bottom">
+                    <field name="property_id"/>
+                    <field name="attribute_key"/>
+                    <field name="attribute_value"/>
+                    <field name="notes"/>
+                </list>
+            </field>
+        </record>
+</odoo>
