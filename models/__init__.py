@@ -20,3 +20,6 @@ from . import property_type
 from . import property_structure
 from . import rental_bill
 from . import res_partner
+from . import property_list_type
+from . import property_list_name
+from . import property_list_value

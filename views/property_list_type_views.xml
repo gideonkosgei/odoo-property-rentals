@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="property_list_type_action" model="ir.actions.act_window">
+        <field name="name">List Type</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">property.list.type</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Add list type!
+            </p>
+        </field>
+    </record>
+
+     <menuitem id="property_list_type_menu" name="List type definitions" parent="property_configuration_menu"
+              action="property_list_type_action" sequence="29"/>
+
+    <record id="property_list_type_view_tree" model="ir.ui.view">
+        <field name="name">property.list.type.view.list</field>
+        <field name="model">property.list.type</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="name"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+</odoo>

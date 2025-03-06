@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="property_list_value_action" model="ir.actions.act_window">
+        <field name="name">List Value</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">property.list.value</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                List Value!
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="property_list_value_menu" name="List value definitions" parent="property_configuration_menu"
+              action="property_list_value_action" sequence="31"/>
+
+    <record id="property_list_value_view_tree" model="ir.ui.view">
+        <field name="name">property.list.value.view.list</field>
+        <field name="model">property.list.value</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="list_name_id"/>
+                <field name="name"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+</odoo>

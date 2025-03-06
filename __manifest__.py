@@ -53,11 +53,12 @@
         'views/res_partner_views.xml',
         'views/rental_bill_views.xml',
         'views/property_auction_views.xml',
+        'views/property_list_value_views.xml',
+        'views/property_list_type_views.xml',
+        'views/property_list_name_views.xml',
         'reports/property_sale_report.xml',
         'reports/property_report.xml',
         'wizards/property_sale_report_views.xml',
-
-
     ],
     'assets': {
         'web.assets_frontend': [
