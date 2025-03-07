@@ -6,7 +6,7 @@ class PropertyFacility(models.Model):
     _description = "Property Facility"
 
     property_id = fields.Many2one("property.property", string="Property", required=True)
-    is_available = fields.Boolean(string="Available?", default=False)
+    is_available = fields.Boolean(string="Available?", default=True)
 
     list_name_id = fields.Many2one(
         "property.list.name",

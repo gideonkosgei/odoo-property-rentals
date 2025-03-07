@@ -276,6 +276,7 @@ class Property(models.Model):
     document_ids = fields.One2many("property.document", "property_id", string="Document Attachments")
     facility_ids = fields.One2many("property.facility","property_id", string="Facilities")
     nearby_amenity_ids = fields.One2many("property.nearby.amenity", "property_id", string="Nearby Amenities")
+    dynamic_attribute_ids = fields.One2many("property.dynamic.attribute", "property_id", string="Dynamic Attributes")
 
     @api.model_create_multi
     def create(self, vals_list):
