@@ -7,9 +7,7 @@ from . import property_commission
 from . import property_facility
 from . import property_nearby_amenity
 from . import property_image
-from . import property_amenity
 from . import property_public_service
-from . import property_nearby_connectivity
 from . import property_property
 from . import property_document
 from . import property_document_category

@@ -13,9 +13,6 @@
         </field>
     </record>
 
-    <menuitem id="property_facilities_menu" name="Facilities" parent="property_configuration_menu"
-              action="property_facility_action" sequence="2"/>
-
     <record id="property_facility_view_tree" model="ir.ui.view">
         <field name="name">property.facility.view.list</field>
         <field name="model">property.facility</field>

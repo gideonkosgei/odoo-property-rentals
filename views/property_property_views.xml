@@ -146,7 +146,6 @@
                                     <field name="network_coverage"/>
                                     <field name="water_supply"/>
                                 </group>
-
                             </group>
                         </page>
                         <page string="Insurance">
@@ -284,16 +283,6 @@
                                     <field name="list_name_id"/>
                                     <field name="list_value_id"/>
                                     <field name="distance"/>
-                                </list>
-                            </field>
-                        </page>
-
-                        <page string="Public Services">
-                            <field name="nearby_connectivity_ids">
-                                <list editable="bottom">
-                                    <field name="name"/>
-                                    <field name="direction"/>
-                                    <field name="kilometer"/>
                                 </list>
                             </field>
                         </page>

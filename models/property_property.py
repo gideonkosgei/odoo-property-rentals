@@ -151,10 +151,6 @@ class Property(models.Model):
         compute="_compute_total_sq_feet",
         help="The total area square feet of the " "property",
     )
-
-    nearby_connectivity_ids = fields.One2many(
-        "property.nearby.connectivity", "property_id", string="Nearby Connectives"
-    )
     property_tags = fields.Many2many(
         "property.tag", string="Property Tags", help="Tags for the property"
     )
