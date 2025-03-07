@@ -151,9 +151,7 @@ class Property(models.Model):
         compute="_compute_total_sq_feet",
         help="The total area square feet of the " "property",
     )
-    facility_ids = fields.Many2many(
-        "property.facility", string="Facilities", help="Facilities of the property"
-    )
+
     nearby_connectivity_ids = fields.One2many(
         "property.nearby.connectivity", "property_id", string="Nearby Connectives"
     )
@@ -281,6 +279,10 @@ class Property(models.Model):
 
     document_attachment_ids = fields.One2many(
         "property.document.attachment", "property_id", string="Document Attachments"
+    )
+
+    facility_ids = fields.One2many(
+        "property.facility","property_id", string="Facilities", help="Facilities of the property"
     )
 
     @api.model_create_multi

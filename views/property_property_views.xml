@@ -269,13 +269,15 @@
 <!--                                </group>-->
 <!--                            </h2>-->
 <!--                        </page>-->
-<!--                        <page string="Facilities">-->
-<!--                            <field name="facility_ids">-->
-<!--                                <list>-->
-<!--                                    <field name="facility"/>-->
-<!--                                </list>-->
-<!--                            </field>-->
-<!--                        </page>-->
+                        <page string="Facilities">
+                            <field name="facility_ids">
+                                <list editable="bottom">
+                                    <field name="list_name_id"/>
+                                    <field name="list_value_id"/>
+                                    <field name="is_available"/>
+                                </list>
+                            </field>
+                        </page>
                         <page string="Public Services">
                             <field name="nearby_connectivity_ids">
                                 <list editable="bottom">

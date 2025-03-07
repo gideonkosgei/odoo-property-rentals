@@ -11,6 +11,8 @@
             </p>
         </field>
     </record>
+    <menuitem id="property_configuration_menu" name="Configuration" parent="property_root_menu"
+              sequence="20" groups="advanced_property_management.group_property_manager"/>
 
      <menuitem id="property_list_type_menu" name="List type definitions" parent="property_configuration_menu"
               action="property_list_type_action" sequence="29"/>

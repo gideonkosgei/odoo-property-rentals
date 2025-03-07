@@ -12,20 +12,19 @@
             </p>
         </field>
     </record>
-    <!-- Property facilities menu items -->
-    <menuitem id="property_configuration_menu" name="Configuration" parent="property_root_menu"
-              sequence="20" groups="advanced_property_management.group_property_manager"/>
+
     <menuitem id="property_facilities_menu" name="Facilities" parent="property_configuration_menu"
               action="property_facility_action" sequence="2"/>
-    <!-- Property facilities tree view -->
+
     <record id="property_facility_view_tree" model="ir.ui.view">
         <field name="name">property.facility.view.list</field>
         <field name="model">property.facility</field>
         <field name="arch" type="xml">
             <list editable="bottom">
-                <field name="category"/>
-                <field name="facility"/>
-                <field name="state"/>
+                <field name="property_id"/>
+                <field name="list_name_id"/>
+                <field name="list_value_id"/>
+                <field name="is_available"/>
             </list>
         </field>
     </record>
