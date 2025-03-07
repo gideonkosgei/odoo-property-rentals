@@ -139,4 +139,28 @@ list_name_id.id,name,description,active
 24,Disaster Management Plan,Disaster management plan especially for commercial buildings.,1
 24,Parking Agreement,Parking Agreement if parking spaces are assigned separately.,1
 25,Other,Other Documents,1
+26,Apartment (Flat),,1
+26,Bungalow(Single-story/standalone house),,1
+26,Villa,,1
+26,Penthouse,,1
+26,Duplex,,1
+26,Triplex/Quadplex,,1
+26,Townhouse (Row House),,1
+26,Condominium (Condo),,1
+26,Studio Apartment/Single-room,,1
+26,Loft,,1
+27,Office Space(Corporate buildings/co-working spaces),,1
+27,Retail Space(Shops/malls/showrooms),,1
+27,Warehouse,,1
+27,Mixed-Use(residential/commercial/office spaces),,1
+28,Serviced Apartment,,1
+28,Hostel/PG (Paying Guest),,1
+28,Resort,,1
+28,Farmhouse,,1
+28,Mansion,,1
+29,Residential Land,,1
+29,Commercial Land,,1
+29,Agricultural(Ranch/Farmland),,1
+29,Recreational & Public(Parks/Golf Courses/Sports),,1
+29,Special Use(Churches/mosques/temples),,1
 

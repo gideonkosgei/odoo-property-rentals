@@ -13,8 +13,6 @@ from . import property_document
 from . import property_rental
 from . import property_sale
 from . import property_tag
-from . import property_type
-from . import property_structure
 from . import rental_bill
 from . import res_partner
 from . import property_list_type

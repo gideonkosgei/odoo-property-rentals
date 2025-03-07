@@ -19,18 +19,18 @@ class Property(models.Model):
     )
 
     property_type_id = fields.Many2one(
-        "property.type",
+        "property.list.name",
         string="Property Type",
-        domain=[("active", "=", True)],
         required=True,
-        tracking = True
+        domain="[('list_type_id', '=', 4), ('active', '=', True)]",
+        tracking=True
     )
-
     property_structure_id = fields.Many2one(
-        "property.structure",
-        string="Building Structure",
-        domain="[('property_type_id', '=', property_type_id), ('active', '=', True)]",
-        required=True, tracking=True
+        'property.list.value',
+        string='Building Structure',
+        required=True,
+        domain="[('list_name_id', '=', property_type_id), ('active', '=', True)]",
+        tracking=True
     )
 
     state = fields.Selection(
@@ -337,5 +337,5 @@ class Property(models.Model):
 
     @api.onchange("property_type_id")
     def _onchange_property_type_id(self):
-        """Clears the building structure when property type changes"""
+        #Clears the building structure when property type changes
         self.property_structure_id = False
