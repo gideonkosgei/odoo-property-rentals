@@ -34,13 +34,14 @@
         <field name="view_mode">kanban,list,form</field>
         <field name="domain">[('blacklisted','=',True)]</field>
     </record>
-    <!-- Partner menu items -->
-    <menuitem id="customers_menu" name="Customers" parent="property_root_menu"
-              sequence="5"/>
-    <menuitem id="property_customers_menu" name="Customers"
-              parent="customers_menu"
-              action="base.action_partner_form" sequence="3"/>
-    <menuitem id="property_customers_blacklisted_menu" name="Blacklisted"
-              parent="customers_menu"
-              action="blacklist_res_partner_action" sequence="5"/>
+
+    <menuitem id="customers_menu" name="Entities" parent="property_root_menu" sequence="5"/>
+    <menuitem id="property_customers_menu" name="Owners &amp; Landlords" parent="customers_menu" action="base.action_partner_form" sequence="3"/>
+    <menuitem id="property_customerss_menu" name="Tenants &amp; Residents" parent="customers_menu" action="base.action_partner_form" sequence="4"/>
+<!--     <menuitem id="property_customers_menu" name="Customers" parent="customers_menu" action="base.action_partner_form" sequence="3"/>-->
+<!--    <menuitem id="property_customers_blacklisted_menu" name="Blacklisted"-->
+<!--              parent="customers_menu"-->
+<!--              action="blacklist_res_partner_action" sequence="5"/>-->
+
+
 </odoo>

@@ -195,4 +195,47 @@ list_name_id.id,name,description,active
 39,Rare,,1
 39,Occasional,,1
 39,Frequent,,1
+40,Property Manager,Oversees the overall management of the property,1
+40,Estate Manager,Manages large residential or commercial estates,1
+40,Leasing Agent,Handles tenant agreements and leasing processes,1
+40,Real Estate Agent,Facilitates property sales and rentals,1
+40,Property Administrator,Manages paperwork and tenant records,1
+40,Receptionist,Manages front desk operations and visitor assistance,1
+40,Caretaker,Oversees day-to-day property maintenance and tenant needs,1
+41,Security Guard,Ensures security and monitors access points,1
+41,CCTV Operator,Monitors surveillance footage for security purposes,1
+41,Access Control Officer,Manages entry/exit permissions and security systems,1
+41,Fire Safety Officer,Ensures fire prevention and emergency response compliance,1
+41,Emergency Response Team,Handles emergencies evacuations and medical aid,1
+42,Maintenance Technician,Handles general repairs and maintenance tasks,1
+42,HVAC Technician,Maintains heating ventilation  and air conditioning systems,1
+42,Electrician,Installs and repairs electrical systems,1
+42,Plumber,Installs and maintains water systems pipes and drainage,1
+42,Carpenter,Builds and repairs wooden structures and furniture,1
+42,Painter,Paints walls ceilings and exterior areas of the property,1
+42,Roofer,Repairs and maintains roofing structures,1
+42,Handyman,Performs minor repairs and maintenance tasks,1
+42,Network Technician,Installs and maintains internet and telecom infrastructure,1
+42,Elevator Technician,Inspects and repairs elevators and lifts,1
+42,Water Treatment Specialist,Manages water purification and plumbing systems,1
+42,Energy Efficiency Consultant,Optimizes energy usage for sustainability,1
+43,Janitor,Cleans common areas and ensures general hygiene,1
+43,Housekeeper,Provides cleaning services for residential units,1
+43,Waste Management Personnel,Manages garbage collection and recycling,1
+43,Pest Control Specialist,Handles extermination and pest prevention,1
+44,Gardener,Maintains lawns trees and gardens,1
+44,Landscaper,Designs and maintains outdoor spaces,1
+44,Groundskeeper,Keeps outdoor areas clean and well-maintained,1
+45,IT & Network Technician,Installs and maintains internet Wi-Fi and networks,1
+45,Generator Operator,Manages backup power systems and fuel supply,1
+45,Water Systems Operator,Monitors water supply and storage systems,1
+45,Pool Maintenance Technician,Cleans and maintains swimming pools and water features,1
+46,Concierge,Assists tenants and guests with services and information,1
+46,Valet Parking Attendant,Manages vehicle parking for residents and guests,1
+46,Event Coordinator,Organizes and manages community events,1
+47,Glass Repair Specialist,Fixes and replaces broken windows and glass doors,1
+47,Fence & Gate Installer,Installs and repairs gates fences and security barriers,1
+47,Laundry Service Provider,Manages in-house laundry services for tenants,1
+47,Dog Walker/Pet Care Provider,Offers pet care services for residents,1
+
 

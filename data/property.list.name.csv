@@ -38,3 +38,11 @@ list_type_id.id,name,active
 5,Water Supply,1
 5,Network Coverage,1
 5,Power Outage,1
+6,Property Management & Administration,1
+6,Security & Safety,1
+6,Maintenance & Repairs,1
+6,Cleaning & Sanitation,1
+6,Outdoor & Landscaping,1
+6,Utilities & Facility Services,1
+6,Tenant & Community Services,1
+6,Other Specialized Services,1
