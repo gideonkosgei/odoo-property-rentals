@@ -287,10 +287,10 @@
                             </field>
                         </page>
                         <page string="Documents">
-                            <field name="document_attachment_ids">
+                            <field name="document_ids">
                                 <list editable="bottom">
-                                        <field name="document_category_id" options="{'no_create': True, 'no_open': True}"/>
-                                        <field name="document_id" options="{'no_create': True, 'no_open': True}"/>
+                                        <field name="list_name_id" options="{'no_create': True, 'no_open': True}"/>
+                                        <field name="list_value_id" options="{'no_create': True, 'no_open': True}"/>
                                         <field name="document_file" filename="document_filename"/>
                                         <field name="document_filename"/>
                                         <field name="document_description"/>

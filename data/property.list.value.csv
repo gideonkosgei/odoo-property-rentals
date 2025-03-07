@@ -1,40 +1,142 @@
-list_name_id.id,name,active
-1,Water Supply,1
-1,Electricity Connection,1
-1,Sewage System,1
-1,Waste Disposal,1
-1,Backup Generator,1
-1,Solar Panels,1
-1,Borehole,1
-2,CCTV Surveillance,1
-2,Access Control,1
-2,Gated Compound,1
-2,24/7 Security Guards,1
-2,Fire Alarm System,1
-2,Emergency Exits,1
-2,Intercom System,1
-3,Car Parking (Basement/Open/Reserved),1
-3,Bicycle Parking,1
-3,EV Charging Stations,1
-3,Visitor Parking,1
-3,Loading Dock,1
-4,Elevators/Lifts,1
-4,Staircases,1
-4,Disabled Access (Ramps/Handrails/etc.),1
-4,Reception/Lobby,1
-3,Signage & Wayfinding,1
-5,Internet/Cable,1
-5,HVAC System (Heating/Ventilation/Air/Conditioning),1
-5,Plumbing & Drainage System,1
-5,Pest Control System,1
-5,Storage Rooms,1
-5,Laundry Room,1
-6,Conference/Meeting Rooms,1
-6,Co-working Space,1
-6,Public Restrooms,1
-6,Common Kitchen/Pantry,1
-6,Waste Collection Points,1
-6,Swimming pool,1
-6,Gym,1
-6,Club House,1
-6,Rooftop Garden,1
+list_name_id.id,name,description,active
+1,Water Supply,,1
+1,Electricity Connection,,1
+1,Sewage System,,1
+1,Waste Disposal,,1
+1,Backup Generator,,1
+1,Solar Panels,,1
+1,Borehole,,1
+2,CCTV Surveillance,,1
+2,Access Control,,1
+2,Gated Compound,,1
+2,24/7 Security Guards,,1
+2,Fire Alarm System,,1
+2,Emergency Exits,,1
+2,Intercom System,,1
+3,Car Parking (Basement/Open/Reserved),,1
+3,Bicycle Parking,,1
+3,EV Charging Stations,,1
+3,Visitor Parking,,1
+3,Loading Dock,,1
+4,Elevators/Lifts,,1
+4,Staircases,,1
+4,Disabled Access (Ramps/Handrails/etc.),,1
+4,Reception/Lobby,,1
+4,Signage & Wayfinding,,1
+5,Internet/Cable,,1
+5,HVAC System (Heating/Ventilation/Air/Conditioning),,1
+5,Plumbing & Drainage System,,1
+5,Pest Control System,,1
+5,Storage Rooms,,1
+5,Laundry Room,,1
+6,Conference/Meeting Rooms,,1
+6,Co-working Space,,1
+6,Public Restrooms,,1
+6,Common Kitchen/Pantry,,1
+6,Waste Collection Points,,1
+6,Swimming pool,,1
+6,Gym,,1
+6,Club House,,1
+6,Rooftop Garden,,1
+7,School,,1
+7,University,,1
+7,Library,,1
+7,Tutoring Center,,1
+7,Training Institute,,1
+8,Hospital,,1
+8,Clinic,,1
+8,Pharmacy,,1
+8,Dental Center,,1
+8,Rehabilitation Center,,1
+9,Park,,1
+9,Playground,,1
+9,Sports Complex,,1
+9,Fitness Center,,1
+9,Community Center,,1
+10,Shopping Center,,1
+10,Supermarket,,1
+10,Restaurant,,1
+10,Retail Store,,1
+10,Bank,,1
+11,Theater,,1
+11,Bar,,1
+11,Nightclub,,1
+11,Amusement Park,,1
+11,Gaming Arcade,,1
+12,Hotel,,1
+12,Resort,,1
+12,Lodge,,1
+12,Guesthouse,,1
+12,Hostel,,1
+13,Bus Station,,1
+13,Train Station,,1
+13,Airport,,1
+13,Taxi Stand,,1
+13,Metro Station,,1
+14,Daycare,,1
+14,Nursery,,1
+14,Babysitting Center,,1
+14,Early Learning Center,,1
+15,Tax Identification Number (TIN),For tax and legal compliance.,1
+15,Government ID / Passport,Verification of owner(s).,1
+15,Property Tax Receipts,Proof of tax payments.,1
+16,Title Deed,Proof of property ownership.,1
+16,Property Registration Certificate,Property Registration Certificate,1
+16,Sale Agreement,Contract between buyer and seller.,1
+16,Encumbrance Certificate,Proof that the property is free from legal liabilities.,1
+16,Inheritance Certificate / Will,Inheritance Certificate / Will,1
+16,Power of Attorney (POA),Power of Attorney (POA) If the property is managed by someone else.,1
+16,Joint Ownership Agreement,Specifies ownership percentages for multiple owners.,1
+17,Lease Agreement,Agreement between landlord and tenant.,1
+17,Tenant Registration Form,Tenant Registration Form,1
+17,Rent Receipts,Proof of payment history.,1
+17,Security Deposit Agreement,Terms for refundable deposit.,1
+17,Eviction Notice,Legal notice in case of disputes.,1
+17,Sublease Agreement,Sublease Agreement,1
+17,Rent Control Compliance Certificate,Rent Control Compliance Certificate,1
+17,Termination of Lease Agreement,Termination of Lease Agreement,1
+17,Tenant Background Check Report,Tenant Background Check Report,1
+18,Zoning & Land Use Permits,Determines the permitted use of the property.,1
+18,Environmental Compliance Certificate,Environmental Compliance Certificate,1
+18,Court Orders / Legal Disputes Documents,Court Orders / Legal Disputes Documents,1
+18,No Objection Certificate (NOC),From various authorities for property transactions.,1
+18,Affidavit of Ownership,Declaration of rightful ownership.,1
+18,Right of Way Agreement,Specify If the property has shared or limited access.,1
+18,Easement Agreement,Specify If third parties have rights to use parts of the property.,1
+18,Litigation Clearance Certificate,Confirms no ongoing legal disputes.,1
+19,Building Plan Approval,Approval from the local authority for construction.,1
+19,Occupancy Certificate,Confirms that the building is safe for occupancy.,1
+19,Fire Safety Certificate,Compliance with fire safety standards.,1
+19,Health & Safety Compliance Certificate,Health & Safety Compliance Certificate,1
+19,Business License (For Commercial Properties),Business License (For Commercial Properties),1
+20,Property Insurance Policy,Coverage details for the property.,1
+20,Liability Insurance Certificate,Liability Insurance Certificate,1
+20,Disaster Insurance,Coverage for natural disasters.,1
+20,Title Insurance Policy,Protects against title-related legal issues.,1
+20,Theft / Burglary Insurance Policy,Protects against theft-related losses.,1
+21,Electricity / Water / Gas Connection Approvals,Proof of registered utility services.,1
+21,Maintenance & Repair Logs,For tracking property upkeep.,1
+21,"Service Contracts (Security, Cleaning, etc.)",Agreements with service providers.,1
+21,HVAC System Maintenance Logs,Records of air conditioning and heating systems.,1
+21,Pest Control Reports,Pest Control Reports,1
+21,Structural Audit Report,Structural audit report to confirms building integrity.,1
+21,Energy Efficiency Certificate,Energy Efficiency Certificate,1
+22,Mortgage Deed,Document If the property was purchased with a loan.,1
+22,Deed of Trust,Document used in some jurisdictions for securing loans.,1
+22,Gift Deed,Document if property was transferred as a gift.,1
+22,Partition Deed,Partition Deed,1
+22,Release Deed,Release document if a co-owner gives up their share of the property.,1
+22,Capital Gains Tax Certificate,Capital Gains Tax Certificate,1
+22,Depreciation Schedule,Depreciation Schedule,1
+22,Rental Income Tax Documents,Rental Income Tax Documents,1
+22,Loan Repayment Statements,Loan Repayment Statements,1
+22,Bank Appraisal Report,Property valuation for financial purposes.,1
+23,Historic Preservation Certificate,Historic Preservation Certificate,1
+23,Noise Pollution Clearance,Noise Pollution Clearance if the property is in a regulated area.,1
+23,Hazardous Materials Permit,Hazardous Materials Permit,1
+24,Security & Surveillance Records,"Details of CCTV cameras, alarm systems, etc.",1
+24,Community Rules & Regulations,Community Rules & Regulations,1
+24,Disaster Management Plan,Disaster management plan especially for commercial buildings.,1
+24,Parking Agreement,Parking Agreement if parking spaces are assigned separately.,1
+25,Other,Other Documents,1
+

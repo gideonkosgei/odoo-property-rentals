@@ -5,3 +5,22 @@ list_type_id.id,name,active
 1,Building & Accessibility,1
 1,Utility & Maintenance,1
 1,Shared/Common Areas,1
+2,Educational,1
+2,Healthcare,1
+2,Recreational,1
+2,Commercial,1
+2,Entertainment,1
+2,Hospitality,1
+2,Transport,1
+2,Childcare Services,1
+3,Tax & Identification,1
+3,Ownership Documents,1
+3,Leasing & Rental,1
+3,Legal & Compliance,1
+3,Building Approvals,1
+3,Insurance,1
+3,Utility & Maintenance,1
+3,Financial & Mortgage,1
+3,Environmental & Safety,1
+3,Community & Security,1
+3,Other,1
