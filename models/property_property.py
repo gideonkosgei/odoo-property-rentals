@@ -211,67 +211,74 @@ class Property(models.Model):
     tracking=True
     )
 
-    security_level = fields.Selection([
-        ('poor', 'Poor'),
-        ('average', 'Average'),
-        ('good', 'Good'),
-        ('excellent', 'Excellent'),
-    ], string="Security Level",tracking=True)
+    security_level_id = fields.Many2one(
+        "property.list.value",
+        string="Security Level",
+        domain="[('list_name_id', '=', 30), ('active', '=', True)]",
+        tracking=True
+    )
 
-    noise_level = fields.Selection([
-        ('quiet', 'Quiet'),
-        ('moderate', 'Moderate'),
-        ('noisy', 'Noisy'),
+    noise_level_id = fields.Many2one(
+        "property.list.value",
+        string="Noise Level",
+        domain="[('list_name_id', '=', 31), ('active', '=', True)]",
+        tracking=True
+    )
 
-    ], string="Noise Level",tracking=True)
-    public_transport = fields.Selection([
-        ('none', 'None'),
-        ('limited', 'Limited'),
-        ('moderate', 'Moderate'),
-        ('good', 'Good'),
-    ], string="Public Transport ", tracking=True)
+    public_transport_id = fields.Many2one(
+        "property.list.value",
+        string="Public Transport",
+        domain="[('list_name_id', '=', 32), ('active', '=', True)]",
+        tracking=True
+    )
 
-    traffic_conditions = fields.Selection([
-        ('light', 'Light'),
-        ('moderate', 'Moderate'),
-        ('heavy', 'Heavy')
-    ], string="Traffic Conditions", tracking=True)
+    traffic_condition_id = fields.Many2one(
+        "property.list.value",
+        string="Traffic Conditions",
+        domain="[('list_name_id', '=', 33), ('active', '=', True)]",
+        tracking=True
+    )
 
-    air_quality = fields.Selection([
-        ('good', 'Good'),
-        ('moderate', 'Moderate'),
-        ('poor', 'Poor')
-    ], string="Air Quality", tracking=True)
+    air_quality_id = fields.Many2one(
+        "property.list.value",
+        string="Air Quality",
+        domain="[('list_name_id', '=', 34), ('active', '=', True)]",
+        tracking=True
+    )
 
-    road_conditions = fields.Selection([
-        ('paved', 'Paved'),
-        ('gravel', 'Gravel'),
-        ('dirt', 'Dirt')
-    ], string="Road Conditions", tracking=True)
+    road_condition_id = fields.Many2one(
+        "property.list.value",
+        string="Road Conditions",
+        domain="[('list_name_id', '=', 35), ('active', '=', True)]",
+        tracking=True
+    )
 
-    street_lighting = fields.Selection([
-        ('well_lit', 'Well lit'),
-        ('dim', 'Dim'),
-        ('poor', 'Poor')
-    ], string="Street Lighting", tracking=True)
+    street_lighting_id = fields.Many2one(
+        "property.list.value",
+        string="Street Lighting",
+        domain="[('list_name_id', '=', 36), ('active', '=', True)]",
+        tracking=True
+    )
 
-    water_supply = fields.Selection([
-        ('stable', 'Stable'),
-        ('occasional_shortages', 'Occasional Shortages'),
-        ('frequent_issues', 'Frequent Issues')
-    ], string="Water Supply", tracking=True)
+    water_supply_id = fields.Many2one(
+        "property.list.value",
+        string="Water Supply",
+        domain="[('list_name_id', '=', 37), ('active', '=', True)]",
+        tracking=True
+    )
 
-    network_coverage = fields.Selection([
-        ('good', 'Good'),
-        ('average', 'Average'),
-        ('poor', 'Poor')
-    ], string="Network Coverage", tracking=True)
-
-    power_outage = fields.Selection([
-        ('rare', 'Rare'),
-        ('occasional', 'Occasional'),
-        ('frequent', 'Frequent')
-    ], string="Power Outage", tracking=True)
+    network_coverage_id = fields.Many2one(
+        "property.list.value",
+        string="Network Coverage",
+        domain="[('list_name_id', '=', 38), ('active', '=', True)]",
+        tracking=True
+    )
+    power_outage_id = fields.Many2one(
+        "property.list.value",
+        string="Power Outage",
+        domain="[('list_name_id', '=', 39), ('active', '=', True)]",
+        tracking=True
+    )
 
     document_ids = fields.One2many("property.document", "property_id", string="Document Attachments")
     facility_ids = fields.One2many("property.facility","property_id", string="Facilities")

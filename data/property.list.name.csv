@@ -28,3 +28,13 @@ list_type_id.id,name,active
 4,Commercial,1
 4,Special-Purpose,1
 4,Land,1
+5,Security Level,1
+5,Noise Level,1
+5,Public Transport,1
+5,Traffic Conditions,1
+5,Air Quality,1
+5,Road Conditions,1
+5,Street Lighting,1
+5,Water Supply,1
+5,Network Coverage,1
+5,Power Outage,1

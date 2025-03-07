@@ -20,6 +20,7 @@
         <field name="model">property.list.value</field>
         <field name="arch" type="xml">
             <list editable="bottom">
+                <field name="id"/>
                 <field name="list_type_id"/>
                 <field name="list_name_id"/>
                 <field name="name"/>

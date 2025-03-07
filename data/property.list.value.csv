@@ -163,4 +163,36 @@ list_name_id.id,name,description,active
 29,Agricultural(Ranch/Farmland),,1
 29,Recreational & Public(Parks/Golf Courses/Sports),,1
 29,Special Use(Churches/mosques/temples),,1
+30,Good,,1
+30,Excellent,,1
+30,Average,,1
+30,Poor,,1
+31,Quiet,,1
+31,Moderate,,1
+31,Noisy,,1
+32,Good,,1
+32,Moderate,,1
+32,Limited,,1
+32,None,,1
+33,Light,,1
+33,Moderate,,1
+33,Heavy,,1
+34,Good,,1
+34,Moderate,,1
+34,Poor,,1
+35,Paved,,1
+35,Gravel,,1
+35,Dirt,,1
+36,Well lit,,1
+36,Dim,,1
+36,Poor,,1
+37,Stable,,1
+37,Occasional shortages,,1
+37,Frequent issues,,1
+38,Good,,1
+38,Average,,1
+38,Poor,,1
+39,Rare,,1
+39,Occasional,,1
+39,Frequent,,1
 

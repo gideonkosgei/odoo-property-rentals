@@ -133,19 +133,19 @@
                         <page string="Location Factors">
                             <group>
                                 <group>
-                                    <field name="public_transport"/>
-                                    <field name="traffic_conditions"/>
-                                    <field name="road_conditions"/>
-                                    <field name="street_lighting"/>
-                                    <field name="noise_level"/>
+                                    <field name="public_transport_id"/>
+                                    <field name="traffic_condition_id"/>
+                                    <field name="road_condition_id"/>
+                                    <field name="street_lighting_id"/>
+                                    <field name="noise_level_id"/>
 
                                 </group>
                                 <group>
-                                    <field name="air_quality"/>
-                                    <field name="security_level"/>
-                                    <field name="power_outage"/>
-                                    <field name="network_coverage"/>
-                                    <field name="water_supply"/>
+                                    <field name="air_quality_id"/>
+                                    <field name="security_level_id"/>
+                                    <field name="power_outage_id"/>
+                                    <field name="network_coverage_id"/>
+                                    <field name="water_supply_id"/>
                                 </group>
                             </group>
                         </page>
