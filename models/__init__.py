@@ -5,6 +5,7 @@ from . import property_auction
 from . import property_auction_line
 from . import property_commission
 from . import property_facility
+from . import property_nearby_amenity
 from . import property_image
 from . import property_amenity
 from . import property_public_service

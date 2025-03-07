@@ -278,6 +278,16 @@
                                 </list>
                             </field>
                         </page>
+                         <page string="Nearby Amenities">
+                            <field name="nearby_amenity_ids">
+                                <list editable="bottom">
+                                    <field name="list_name_id"/>
+                                    <field name="list_value_id"/>
+                                    <field name="distance"/>
+                                </list>
+                            </field>
+                        </page>
+
                         <page string="Public Services">
                             <field name="nearby_connectivity_ids">
                                 <list editable="bottom">

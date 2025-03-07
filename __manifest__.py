@@ -44,6 +44,7 @@
         'views/property_list_value_views.xml',
         'views/property_list_name_views.xml',
         'views/property_facility_views.xml',
+        'views/property_nearby_amenity_views.xml',
         'views/property_type_views.xml',
         'views/property_structure_views.xml',
         'views/property_public_service_views.xml',

@@ -281,9 +281,8 @@ class Property(models.Model):
         "property.document.attachment", "property_id", string="Document Attachments"
     )
 
-    facility_ids = fields.One2many(
-        "property.facility","property_id", string="Facilities", help="Facilities of the property"
-    )
+    facility_ids = fields.One2many("property.facility","property_id", string="Facilities")
+    nearby_amenity_ids = fields.One2many("property.nearby.amenity", "property_id", string="Nearby Amenities")
 
     @api.model_create_multi
     def create(self, vals_list):
