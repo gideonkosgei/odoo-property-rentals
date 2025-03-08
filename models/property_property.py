@@ -162,7 +162,7 @@ class Property(models.Model):
             ("for_auction", "For Auction"),
         ],
         string="Sale | Rent",
-        required=True,
+        # required=True,
     )
     unit_price = fields.Monetary(
         string="Sales Price", help="Selling price of the Property."
@@ -284,6 +284,7 @@ class Property(models.Model):
     facility_ids = fields.One2many("property.facility","property_id", string="Facilities")
     nearby_amenity_ids = fields.One2many("property.nearby.amenity", "property_id", string="Nearby Amenities")
     dynamic_attribute_ids = fields.One2many("property.dynamic.attribute", "property_id", string="Dynamic Attributes")
+    people_ids = fields.One2many("property.people", "property_id", string="People")
 
     @api.model_create_multi
     def create(self, vals_list):

@@ -196,13 +196,12 @@
                                 </list>
                             </field>
                         </page>
-                        <page string="Relationships">
-                            <field name="dynamic_attribute_ids">
+                        <page string="People">
+                            <field name="people_ids">
                                 <list editable="bottom">
-                                    <field name="attribute_key"/>
-<!--                                    <field name="attribute_value" String="Role"/>-->
-                                    <field name="attribute_value"/>
-                                    <field name="notes"/>
+                                    <field name="category_id"/>
+                                    <field name="role_id"/>
+                                    <field name="partner_id"/>
                                 </list>
                             </field>
                         </page>
