@@ -8,7 +8,7 @@ class PropertyNearbyAmenity(models.Model):
     property_id = fields.Many2one("property.property", string="Property", required=True)
     nearby_amenity_type_id = fields.Many2one(
         "property.list.name",
-        string="Facility Type",
+        string="Type",
         required=True,
         domain="[('list_type_id', '=', 2), ('active', '=', True)]"
     )
@@ -23,6 +23,7 @@ class PropertyNearbyAmenity(models.Model):
         required=True,
         help='The distance between the property and the amenity nearby in kilometers'
     )
+    details = fields.Text(string='Details')
 
     @api.onchange("nearby_amenity_type_id")
     def _onchange_nearby_amenity_type_id(self):

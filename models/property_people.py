@@ -24,6 +24,7 @@ class PropertyPeople(models.Model):
         "res.partner", string="Person/Company", required=True,
         help="The person or company associated with the property",
     )
+    details = fields.Text(string='Details')
 
     @api.onchange("category_id")
     def _onchange_category_id(self):

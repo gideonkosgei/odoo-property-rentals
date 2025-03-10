@@ -20,6 +20,7 @@ class PropertyLocalCondition(models.Model):
         required=True,
         domain="[('list_name_id', '=', category_id), ('active', '=', True)]"
     )
+    details = fields.Text(string='Details')
 
     @api.onchange("category_id")
     def _onchange_category_id(self):
@@ -35,7 +36,7 @@ class PropertyLocalCondition(models.Model):
             ])
             if existing:
                 raise ValidationError(
-                    f"Local Conditions: The condition '{record.category_id.name}' is already set for this property. "
+                    f"Local Conditions: '{record.category_id.name}' is already set for this property. "
                     "Please select a different condition or remove the existing one before adding a new entry."
                 )
 

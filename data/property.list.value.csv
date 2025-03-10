@@ -38,7 +38,10 @@ list_name_id.id,name,description,active
 6,Gym,,1
 6,Club House,,1
 6,Rooftop Garden,,1
-7,School,,1
+7,Private Primary School,,1
+7,Public Primary School,,1
+7,Private High School,,1
+7,Public High School,,1
 7,University,,1
 7,Library,,1
 7,Tutoring Center,,1

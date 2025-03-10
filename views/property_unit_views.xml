@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="property_unit_action" model="ir.actions.act_window">
+        <field name="name">Units</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">property.unit</field>
+        <field name="view_mode">list,form,kanban,activity</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                List Value!
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="property_unit_menu"
+              name="Property Units"
+              parent="property_menu"
+              action="property_unit_action"
+              sequence="15"
+    />
+    <record id="property_unit_view_form" model="ir.ui.view">
+        <field name="name">property.unit.view.form</field>
+        <field name="model">property.unit</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="status" widget="statusbar"
+                           statusbar_visible="draft,available"
+                    />
+
+                </header>
+                <sheet>
+
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Enter Property Name"/>
+                        </h1>
+                        <br/>
+                        <group>
+                            <field name="name"/>
+                            <field name="property_id"/>
+                            <field name="floor_number"/>
+                            <field name="area_size"/>
+                            <field name="bedrooms"/>
+                            <field name="bathrooms"/>
+                            <field name="is_occupied"/>
+                            <field name="rent_price"/>
+                            <field name="status"/>t
+                            <field name="electricity_meter_number"/>
+                            <field name="water_meter_number"/>
+                            <field name="gas_meter_number"/>
+                        </group>
+                    </div>
+
+                    <!--                    <notebook>                     -->
+                    <!--                        <page string="Units">-->
+                    <!--                            <field name="unit_ids">-->
+                    <!--                                <list editable="bottom">-->
+                    <!--                                   <field name="name"/>-->
+                    <!--                                    <field name="floor_number"/>-->
+                    <!--                                    <field name="area_size" />-->
+                    <!--                                    <field name="bedrooms" />-->
+                    <!--                                    <field name="bathrooms" />-->
+                    <!--                                    <field name="is_occupied" />-->
+                    <!--                                    <field name="rent_price" />-->
+                    <!--                                    <field name="status" />t-->
+                    <!--                                    <field name="electricity_meter_number" />-->
+                    <!--                                    <field name="water_meter_number" />-->
+                    <!--                                    <field name="gas_meter_number" />-->
+                    <!--                                </list>-->
+                    <!--                            </field>-->
+                    <!--                        </page>  -->
+                    <!--                    </notebook>-->
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="property_unit_view_tree" model="ir.ui.view">
+        <field name="name">property.unit.view.list</field>
+        <field name="model">property.unit</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="id"/>
+                <field name="name"/>
+                <field name="property_id"/>
+                <field name="floor_number"/>
+                <field name="area_size"/>
+                <field name="bedrooms"/>
+                <field name="bathrooms"/>
+                <field name="is_occupied"/>
+                <field name="rent_price"/>
+                <field name="status"/>
+                <field name="electricity_meter_number"/>
+                <field name="water_meter_number"/>
+                <field name="gas_meter_number"/>
+            </list>
+        </field>
+    </record>
+</odoo>

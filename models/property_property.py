@@ -72,6 +72,7 @@ class Property(models.Model):
         help="The name of the state"
     )
 
+    image = fields.Binary(string="Image", help="Image of the property")
     neighbourhood = fields.Char(string="Neighbourhood", tracking=True)
     location_url = fields.Char(string="Location Link", help="Enter a Google Maps or OpenStreetMap link", tracking=True)
     landmark = fields.Text(
@@ -90,8 +91,6 @@ class Property(models.Model):
     currency_id = fields.Many2one(
         "res.currency", string="Currency", related="company_id.currency_id", tracking=True
     )
-    image = fields.Binary(string="Image", help="Image of the property")
-
 
     description = fields.Text(
         string="Description", help="A brief description about the property", tracking=True
@@ -140,9 +139,7 @@ class Property(models.Model):
         string="Used For", help="For what purpose is this property used for"
     )
 
-    property_image_ids = fields.One2many(
-        "property.image", "property_id", string="Property Images", tracking=True
-    )
+
     area_measurement_ids = fields.One2many(
         "property.area.measure", "property_id", string="Area Measurement"
     )
@@ -216,6 +213,11 @@ class Property(models.Model):
     nearby_amenity_ids = fields.One2many("property.nearby.amenity", "property_id", string="Nearby Amenities")
     dynamic_attribute_ids = fields.One2many("property.dynamic.attribute", "property_id", string="Dynamic Attributes")
     people_ids = fields.One2many("property.people", "property_id", string="People")
+    unit_ids = fields.One2many("property.unit", "property_id", string="unit")
+    property_image_ids = fields.One2many(
+        "property.image", "property_id", string="Property Images", tracking=True
+    )
+
 
     @api.model_create_multi
     def create(self, vals_list):

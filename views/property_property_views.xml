@@ -132,6 +132,7 @@
                                 <list editable="bottom">
                                     <field name="category_id"/>
                                     <field name="local_condition_id"/>
+                                    <field name="details"/>
                                 </list>
                             </field>
                         </page>
@@ -149,6 +150,7 @@
                                 <list editable="bottom">
                                     <field name="facility_type_id"/>
                                     <field name="facility_id"/>
+                                    <field name="details"/>
                                     <field name="is_available"/>
                                 </list>
                             </field>
@@ -158,6 +160,7 @@
                                 <list editable="bottom">
                                     <field name="nearby_amenity_type_id"/>
                                     <field name="nearby_amenity_id"/>
+                                    <field name="details"/>
                                     <field name="distance"/>
                                 </list>
                             </field>
@@ -173,12 +176,58 @@
                                 </list>
                             </field>
                         </page>
+                        <page string="Images">
+                            <field name="property_image_ids">
+                                <kanban>
+                                    <field name="id"/>
+                                    <field name="name"/>
+                                    <field name="image"/>
+                                    <field name="description"/>
+                                    <templates>
+                                        <t t-name="kanban-box">
+                                            <div t-attf-class="oe_kanban_global_click">
+                                                <div class="o_kanban_image">
+                                                    <field name="image"
+                                                           widget="image"
+                                                           class="oe_avatar"/>
+                                                </div>
+                                                <div class="oe_kanban_details">
+                                                    <t class="o_kanban_record_title">
+                                                        <strong>
+                                                            <field name="name"/>
+                                                        </strong>
+                                                        <br/>
+                                                        <field name="description"/>
+                                                    </t>
+                                                </div>
+                                            </div>
+                                        </t>
+                                    </templates>
+                                </kanban>
+                                <form>
+                                    <sheet>
+                                        <group>
+                                            <group>
+                                                <field name="name"/>
+                                                <field name="description"/>
+                                            </group>
+                                            <group>
+                                                <field name="image"
+                                                       widget="image"
+                                                       class="oe_avatar"/>
+                                            </group>
+                                        </group>
+                                    </sheet>
+                                </form>
+                            </field>
+                        </page>
                         <page string="People">
                             <field name="people_ids">
                                 <list editable="bottom">
                                     <field name="category_id"/>
                                     <field name="role_id"/>
                                     <field name="partner_id"/>
+                                    <field name="details"/>
                                 </list>
                             </field>
                         </page>
@@ -188,6 +237,23 @@
                                     <field name="attribute_key"/>
                                     <field name="attribute_value"/>
                                     <field name="notes"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Units">
+                            <field name="unit_ids">
+                                <list editable="bottom">
+                                   <field name="name"/>
+                                    <field name="floor_number"/>
+                                    <field name="area_size" />
+                                    <field name="bedrooms" />
+                                    <field name="bathrooms" />
+                                    <field name="is_occupied" />
+                                    <field name="rent_price" />
+                                    <field name="status" />t
+                                    <field name="electricity_meter_number" />
+                                    <field name="water_meter_number" />
+                                    <field name="gas_meter_number" />
                                 </list>
                             </field>
                         </page>
@@ -241,51 +307,7 @@
                         <!--                        <page string="Description">-->
                         <!--                            <field name="description"/>-->
                         <!--                        </page>-->
-                        <!--                        <page string="Images">-->
-                        <!--                            <field name="property_image_ids">-->
-                        <!--                                <kanban>-->
-                        <!--                                    <field name="id"/>-->
-                        <!--                                    <field name="name"/>-->
-                        <!--                                    <field name="image"/>-->
-                        <!--                                    <field name="description"/>-->
-                        <!--                                    <templates>-->
-                        <!--                                        <t t-name="kanban-box">-->
-                        <!--                                            <div t-attf-class="oe_kanban_global_click">-->
-                        <!--                                                <div class="o_kanban_image">-->
-                        <!--                                                    <field name="image"-->
-                        <!--                                                           widget="image"-->
-                        <!--                                                           class="oe_avatar"/>-->
-                        <!--                                                </div>-->
-                        <!--                                                <div class="oe_kanban_details">-->
-                        <!--                                                    <t class="o_kanban_record_title">-->
-                        <!--                                                        <strong>-->
-                        <!--                                                            <field name="name"/>-->
-                        <!--                                                        </strong>-->
-                        <!--                                                        <br/>-->
-                        <!--                                                        <field name="description"/>-->
-                        <!--                                                    </t>-->
-                        <!--                                                </div>-->
-                        <!--                                            </div>-->
-                        <!--                                        </t>-->
-                        <!--                                    </templates>-->
-                        <!--                                </kanban>-->
-                        <!--                                <form>-->
-                        <!--                                    <sheet>-->
-                        <!--                                        <group>-->
-                        <!--                                            <group>-->
-                        <!--                                                <field name="name"/>-->
-                        <!--                                                <field name="description"/>-->
-                        <!--                                            </group>-->
-                        <!--                                            <group>-->
-                        <!--                                                <field name="image"-->
-                        <!--                                                       widget="image"-->
-                        <!--                                                       class="oe_avatar"/>-->
-                        <!--                                            </group>-->
-                        <!--                                        </group>-->
-                        <!--                                    </sheet>-->
-                        <!--                                </form>-->
-                        <!--                            </field>-->
-                        <!--                        </page>-->
+
                         <!--                        <page string="Measurement" name="measurement">-->
                         <!--                            <field name="area_measurement_ids">-->
                         <!--                                <list editable="bottom">-->

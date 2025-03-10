@@ -40,3 +40,5 @@ access_property_people_agent,access.property.people.agent,model_property_people,
 access_property_people_manager,access.property.people.manager,model_property_people,advanced_property_management.group_property_manager,1,1,1,1
 access_property_local_condition_agent,access.property.local.condition.agent,model_property_local_condition,advanced_property_management.group_property_agent,1,1,1,0
 access_property_local_condition_manager,access.property.local.condition.manager,model_property_local_condition,advanced_property_management.group_property_manager,1,1,1,1
+access_property_unit_agent,access.property.unit.agent,model_property_unit,advanced_property_management.group_property_agent,1,1,1,0
+access_property_unit_manager,access.property.unit.manager,model_property_unit,advanced_property_management.group_property_manager,1,1,1,1

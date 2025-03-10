@@ -13,6 +13,7 @@ class PropertyImages(models.Model):
                               help='A brief description of the image given')
     image = fields.Binary(string='Image', required=True,
                           help='The properties image')
+
     property_id = fields.Many2one('property.property',
                                   string='Property',
                                   help='Related property')
