@@ -210,76 +210,7 @@ class Property(models.Model):
              "- Encumbrances': loans or liens against the property? \n",
     tracking=True
     )
-
-    security_level_id = fields.Many2one(
-        "property.list.value",
-        string="Security Level",
-        domain="[('list_name_id', '=', 30), ('active', '=', True)]",
-        tracking=True
-    )
-
-    noise_level_id = fields.Many2one(
-        "property.list.value",
-        string="Noise Level",
-        domain="[('list_name_id', '=', 31), ('active', '=', True)]",
-        tracking=True
-    )
-
-    public_transport_id = fields.Many2one(
-        "property.list.value",
-        string="Public Transport",
-        domain="[('list_name_id', '=', 32), ('active', '=', True)]",
-        tracking=True
-    )
-
-    traffic_condition_id = fields.Many2one(
-        "property.list.value",
-        string="Traffic Conditions",
-        domain="[('list_name_id', '=', 33), ('active', '=', True)]",
-        tracking=True
-    )
-
-    air_quality_id = fields.Many2one(
-        "property.list.value",
-        string="Air Quality",
-        domain="[('list_name_id', '=', 34), ('active', '=', True)]",
-        tracking=True
-    )
-
-    road_condition_id = fields.Many2one(
-        "property.list.value",
-        string="Road Conditions",
-        domain="[('list_name_id', '=', 35), ('active', '=', True)]",
-        tracking=True
-    )
-
-    street_lighting_id = fields.Many2one(
-        "property.list.value",
-        string="Street Lighting",
-        domain="[('list_name_id', '=', 36), ('active', '=', True)]",
-        tracking=True
-    )
-
-    water_supply_id = fields.Many2one(
-        "property.list.value",
-        string="Water Supply",
-        domain="[('list_name_id', '=', 37), ('active', '=', True)]",
-        tracking=True
-    )
-
-    network_coverage_id = fields.Many2one(
-        "property.list.value",
-        string="Network Coverage",
-        domain="[('list_name_id', '=', 38), ('active', '=', True)]",
-        tracking=True
-    )
-    power_outage_id = fields.Many2one(
-        "property.list.value",
-        string="Power Outage",
-        domain="[('list_name_id', '=', 39), ('active', '=', True)]",
-        tracking=True
-    )
-
+    local_condition_ids = fields.One2many("property.local.condition", "property_id", string="Local Condition")
     document_ids = fields.One2many("property.document", "property_id", string="Document Attachments")
     facility_ids = fields.One2many("property.facility","property_id", string="Facilities")
     nearby_amenity_ids = fields.One2many("property.nearby.amenity", "property_id", string="Nearby Amenities")

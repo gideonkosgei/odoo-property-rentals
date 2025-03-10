@@ -19,4 +19,5 @@ from . import property_list_type
 from . import property_list_name
 from . import property_list_value
 from . import property_people
+from . import property_local_condition
 

@@ -85,9 +85,6 @@
                             <field name="property_tags"
                                    widget="many2many_tags"/>
                         </group>
-                        <group>
-                            <!--                            <field name="responsible_id"/>-->
-                        </group>
                     </group>
                     <notebook>
                         <page string="Ownership">
@@ -130,24 +127,13 @@
                                 </group>
                             </group>
                         </page>
-                        <page string="Location Factors">
-                            <group>
-                                <group>
-                                    <field name="public_transport_id"/>
-                                    <field name="traffic_condition_id"/>
-                                    <field name="road_condition_id"/>
-                                    <field name="street_lighting_id"/>
-                                    <field name="noise_level_id"/>
-
-                                </group>
-                                <group>
-                                    <field name="air_quality_id"/>
-                                    <field name="security_level_id"/>
-                                    <field name="power_outage_id"/>
-                                    <field name="network_coverage_id"/>
-                                    <field name="water_supply_id"/>
-                                </group>
-                            </group>
+                        <page string="Local Conditions">
+                            <field name="local_condition_ids">
+                                <list editable="bottom">
+                                    <field name="category_id"/>
+                                    <field name="local_condition_id"/>
+                                </list>
+                            </field>
                         </page>
                         <page string="Insurance">
                             <group>
@@ -187,21 +173,21 @@
                                 </list>
                             </field>
                         </page>
-                        <page string="Dynamic Attributes">
-                            <field name="dynamic_attribute_ids">
-                                <list editable="bottom">
-                                    <field name="attribute_key"/>
-                                    <field name="attribute_value"/>
-                                    <field name="notes"/>
-                                </list>
-                            </field>
-                        </page>
                         <page string="People">
                             <field name="people_ids">
                                 <list editable="bottom">
                                     <field name="category_id"/>
                                     <field name="role_id"/>
                                     <field name="partner_id"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Dynamic Attributes">
+                            <field name="dynamic_attribute_ids">
+                                <list editable="bottom">
+                                    <field name="attribute_key"/>
+                                    <field name="attribute_value"/>
+                                    <field name="notes"/>
                                 </list>
                             </field>
                         </page>

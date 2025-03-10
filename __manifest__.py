@@ -29,7 +29,7 @@
         'security/property_security.xml',
         'security/ir.model.access.csv',
         'data/ir_sequence_data.xml',
-        'data/advanced_property_management_data.xml',
+        # 'data/advanced_property_management_data.xml',
         'data/ir_cron_data.xml',
         'data/property.list.type.csv',
         'data/property.list.name.csv',
