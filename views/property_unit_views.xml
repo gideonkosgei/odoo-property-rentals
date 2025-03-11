@@ -27,10 +27,8 @@
                     <field name="status" widget="statusbar"
                            statusbar_visible="draft,available"
                     />
-
                 </header>
                 <sheet>
-
                     <div class="oe_title">
                         <h1>
                             <field name="name" placeholder="Enter Property Name"/>
@@ -45,32 +43,68 @@
                             <field name="bathrooms"/>
                             <field name="is_occupied"/>
                             <field name="rent_price"/>
-                            <field name="status"/>t
-                            <field name="electricity_meter_number"/>
-                            <field name="water_meter_number"/>
-                            <field name="gas_meter_number"/>
+                            <field name="status"/>
                         </group>
                     </div>
 
-                    <!--                    <notebook>                     -->
-                    <!--                        <page string="Units">-->
-                    <!--                            <field name="unit_ids">-->
-                    <!--                                <list editable="bottom">-->
-                    <!--                                   <field name="name"/>-->
-                    <!--                                    <field name="floor_number"/>-->
-                    <!--                                    <field name="area_size" />-->
-                    <!--                                    <field name="bedrooms" />-->
-                    <!--                                    <field name="bathrooms" />-->
-                    <!--                                    <field name="is_occupied" />-->
-                    <!--                                    <field name="rent_price" />-->
-                    <!--                                    <field name="status" />t-->
-                    <!--                                    <field name="electricity_meter_number" />-->
-                    <!--                                    <field name="water_meter_number" />-->
-                    <!--                                    <field name="gas_meter_number" />-->
-                    <!--                                </list>-->
-                    <!--                            </field>-->
-                    <!--                        </page>  -->
-                    <!--                    </notebook>-->
+                    <notebook>
+                        <page string="Images">
+                            <field name="image_ids">
+                                <kanban>
+                                    <field name="id"/>
+                                    <field name="name"/>
+                                    <field name="image"/>
+                                    <field name="description"/>
+                                    <templates>
+                                        <t t-name="kanban-box">
+                                            <div t-attf-class="oe_kanban_global_click">
+                                                <div class="o_kanban_image">
+                                                    <field name="image"
+                                                           widget="image"
+                                                           class="oe_avatar"/>
+                                                </div>
+                                                <div class="oe_kanban_details">
+                                                    <t class="o_kanban_record_title">
+                                                        <strong>
+                                                            <field name="name"/>
+                                                        </strong>
+                                                        <br/>
+                                                        <field name="description"/>
+                                                    </t>
+                                                </div>
+                                            </div>
+                                        </t>
+                                    </templates>
+                                </kanban>
+                                <form>
+                                    <sheet>
+                                        <group>
+                                            <group>
+                                                <field name="name"/>
+                                                <field name="description"/>
+                                            </group>
+                                            <group>
+                                                <field name="image"
+                                                       widget="image"
+                                                       class="oe_avatar"/>
+                                            </group>
+                                        </group>
+                                    </sheet>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Utility Meters">
+                            <field name="utility_meter_ids">
+                                <list editable="bottom">
+                                    <field name="category_id"/>
+                                    <field name="utility_id"/>
+                                    <field name="provider_id"/>
+                                    <field name="meter_number"/>
+                                    <field name="details"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
                 <chatter/>
             </form>
@@ -92,9 +126,6 @@
                 <field name="is_occupied"/>
                 <field name="rent_price"/>
                 <field name="status"/>
-                <field name="electricity_meter_number"/>
-                <field name="water_meter_number"/>
-                <field name="gas_meter_number"/>
             </list>
         </field>
     </record>

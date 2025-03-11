@@ -8,6 +8,7 @@ from . import property_facility
 from . import property_nearby_amenity
 from . import property_dynamic_attribute
 from . import property_image
+from . import property_unit_image
 from . import property_property
 from . import property_document
 from . import property_rental
@@ -21,4 +22,5 @@ from . import property_list_value
 from . import property_people
 from . import property_local_condition
 from . import property_unit
+from . import property_unit_utility_meter
 

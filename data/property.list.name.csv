@@ -46,3 +46,9 @@ list_type_id.id,name,active
 6,Utilities & Facility Services,1
 6,Tenant & Community Services,1
 6,Other Specialized Services,1
+7,Metered Utilities,1
+7,Non-Metered Utilities,1
+8,Electricity,1
+8,Water,1
+8,Internet,1
+8,Gas,1

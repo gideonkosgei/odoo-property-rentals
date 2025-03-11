@@ -4,7 +4,7 @@ from odoo import fields, models,api
 class PropertyUnit(models.Model):
     _name = "property.unit"
     _description = "Property Unit"
-
+    _inherit = ["mail.thread", "mail.activity.mixin"]
 
     name = fields.Char(string="Unit Name", required=True, help="The name or number of the unit (e.g., A101, Office 3B)")
     property_id = fields.Many2one("property.property", string="Property", required=True,
@@ -33,11 +33,11 @@ class PropertyUnit(models.Model):
         default="available",
     )
 
-    # Utility tracking
-    electricity_meter_number = fields.Char(string="Electricity Meter No.",
-                                           help="Electricity meter number for this unit")
-    water_meter_number = fields.Char(string="Water Meter No.", help="Water meter number for this unit")
-    gas_meter_number = fields.Char(string="Gas Meter No.", help="Gas meter number for this unit")
+    image_ids = fields.One2many(
+        "property.unit.image", "unit_id", string="Unit Images"
+    )
+
+    utility_meter_ids = fields.One2many("property.unit.utility.meter", "unit_id", string="People")
 
     # Parking
     # parking_space_id = fields.Many2one("property.parking", string="Assigned Parking Space",

@@ -240,5 +240,20 @@ list_name_id.id,name,description,active
 47,Fence & Gate Installer,Installs and repairs gates fences and security barriers,1
 47,Laundry Service Provider,Manages in-house laundry services for tenants,1
 47,Dog Walker/Pet Care Provider,Offers pet care services for residents,1
+48,Electricity Meter Number,,1
+48,Water Meter Number,,1
+48,Gas Meter Number,,1
+48,Solar Power Meter Number,,1
+48,Backup Generator Usage Meter,,1
+49,Internet Service Provider (ISP) & Plan Details,,1
+49,Cable TV/Satellite Provider,,1
+50,Kenya Power,,1
+51,Nairobi City Water and Sewerage Company Ltd,,1
+51,Kiambu Water & Sewerage Co,,1
+52,Safaricom,,1
+52,Zuku,,1
+52,Faiba,,1
+52,Poa Internet,,1
+
 
 

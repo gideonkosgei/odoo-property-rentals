@@ -250,10 +250,7 @@
                                     <field name="bathrooms" />
                                     <field name="is_occupied" />
                                     <field name="rent_price" />
-                                    <field name="status" />t
-                                    <field name="electricity_meter_number" />
-                                    <field name="water_meter_number" />
-                                    <field name="gas_meter_number" />
+                                    <field name="status" />
                                 </list>
                             </field>
                         </page>
