@@ -15,6 +15,7 @@ class PropertyUnit(models.Model):
     )
 
     utility_meter_ids = fields.One2many("property.unit.utility.meter", "unit_id", string="People")
+    furnish_ids = fields.One2many("property.unit.furnish", "unit_id", string="Furniture & Appliance")
 
     wall_material = fields.Many2one(
         "property.list.value",
@@ -42,7 +43,7 @@ class PropertyUnit(models.Model):
     )
     cabinets_material = fields.Many2one(
         "property.list.value",
-        string="cabinet Material",
+        string="Cabinet Material",
         domain="[('list_name_id', '=', 58), ('active', '=', True)]",
         tracking=True
     )
@@ -64,6 +65,14 @@ class PropertyUnit(models.Model):
         domain="[('list_name_id', '=', 61), ('active', '=', True)]",
         tracking=True
     )
+    furnishing = fields.Many2one(
+        "property.list.value",
+        string="Furnishing",
+        domain="[('list_name_id', '=', 62), ('active', '=', True)]",
+        tracking=True
+    )
+
+
     fireplace = fields.Boolean(string="Fireplace", default=False)
 
 

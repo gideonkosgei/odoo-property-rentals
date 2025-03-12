@@ -23,4 +23,5 @@ from . import property_people
 from . import property_local_condition
 from . import property_unit
 from . import property_unit_utility_meter
+from . import property_unit_furnish
 

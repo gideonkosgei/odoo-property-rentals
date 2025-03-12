@@ -285,6 +285,70 @@ list_name_id.id,name,description,active
 61,Central Heating,,1
 61,Radiators,,1
 61,Underfloor Heating,,1
+62,Unfurnished,,1
+62,Semi-furnished,,1
+62,Fully furnished,,1
+63,Sofa set (sectional/loveseat/armchairs),,1
+63,Coffee table/Center table,,1
+63,TV (Smart TV or regular),,1
+63,TV stand or wall mount,,1
+63,Side tables/Console table,,1
+63,Bookshelf or display cabinet,,1
+63,Curtains/Blinds,,1
+63,Floor lamp/Table lamps,,1
+63,Decorative elements (rug / wall art / throw pillows),,1
+63,Air conditioning or ceiling fan,,1
+64,Dining table,,1
+64,Dining chairs,,1
+64,Sideboard/Buffet cabinet,,1
+64,Table mats & coasters,,1
+64,Cutlery & glassware for guests,,1
+65,Bed frame,,1
+65,Mattress,,1
+65,Pillows & bedsheets,,1
+65,Duvet/Comforter,,1
+65,Wardrobe/Closet (with hangers),,1
+65,Bedside tables with drawers,,1
+65,Bedside lamps,,1
+65,Dressing table with mirror,,1
+65,Full-length mirror,,1
+65,Blackout curtains / Blinds,,1
+65,Small seating area (armchair or bench),,1
+65,Safe/Locker (for valuables),,1
+66,Refrigerator,,1
+66,Stove/Cooker,,1
+66,Microwave,,1
+66,Kettle/Electric kettle,,1
+66,Toaster/Sandwich maker,,1
+66,Blender/Juicer,,1
+66,Water dispenser/Purifier,,1
+66,Cooking pots & pans (various sizes),,1
+66,Utensils (spatula/ladle/tongs/peeler/ whisk),,1
+66,Cutlery (knives/forks/spoons),,1
+66,Plates or bowls or serving dishes,,1
+66,Mugs & glasses,,1
+66,Storage containers,,1
+66,Trash bin with lid,,1
+66,Dish rack/Drying mat,,1
+66,Oven mitts & kitchen towels,,1
+66,Cleaning supplies,,1
+67,Shower (with hot & cold water),,1
+67,Mirror (wall-mounted or cabinet),,1
+67,Towel racks & hooks,,1
+67,Towels(bath/hand/face),,1
+67,Bath mat/Non-slip rug,,1
+67,Storage shelf (for toiletries & essentials),,1
+67,Soap dish/Liquid soap dispenser,,1
+67,Toothbrush holder,,1
+67,Toilet brush & cleaning supplies,,1
+67,Air freshener,,1
+68,Washing machine (top load/front load),,1
+68,Drying rack/Clothesline,,1
+68,Iron & Ironing board,,1
+68,Laundry basket/Hamper,,1
+68,Vacuum cleaner/Broom & dustpan,,1
+68,Mop & bucket,,1
+
 
 
 
