@@ -48,6 +48,23 @@
                     </div>
 
                     <notebook>
+                        <page string="Interior Specifications">
+                            <group>
+                                <group>
+                                    <field name="wall_material"/>
+                                    <field name="flooring_type"/>
+                                    <field name="kitchen_type"/>
+                                    <field name="kitchen_appliances"/>
+                                    <field name="cabinets_material"/>
+                                </group>
+                                <group>
+                                    <field name="lighting_type"/>
+                                    <field name="air_conditioning"/>
+                                    <field name="heating_system"/>
+                                    <field name="fireplace"/>
+                                </group>
+                            </group>
+                        </page>
                         <page string="Images">
                             <field name="image_ids">
                                 <kanban>

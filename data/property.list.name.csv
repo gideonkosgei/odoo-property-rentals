@@ -52,3 +52,11 @@ list_type_id.id,name,active
 8,Water,1
 8,Internet,1
 8,Gas,1
+9,Wall Material,1
+9,Flooring Type,1
+9,Kitchen Type,1
+9,Kitchen Appliances,1
+9,Cabinets Material,1
+9,Lighting Type,1
+9,Air Conditioning,1
+9,Heating System,1

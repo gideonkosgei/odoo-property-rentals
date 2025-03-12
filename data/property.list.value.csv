@@ -254,6 +254,38 @@ list_name_id.id,name,description,active
 52,Zuku,,1
 52,Faiba,,1
 52,Poa Internet,,1
+54,Concrete,,1
+54,Brick,,1
+54,Wood,,1
+54,Drywall,,1
+54,Stone,,1
+55,Tiles,,1
+55,Hardwood,,1
+55,Carpet,,1
+55,Vinyl,,1
+55,Laminate,,1
+56,Open-plan,,1
+56,Closed,,1
+56,Modular,,1
+56,Kitchenette,,1
+57,Fridge,,1
+57,Oven,,1
+57,Dishwasher,,1
+58,Wood,,1
+58,MDF,,1
+58,Stainless Steel,,1
+58,Glass,,1
+59,LED,,1
+59,Fluorescent,,1
+59,Halogen,,1
+59,Natural Light,,1
+60,Central,,1
+60,Split,,1
+60,Window,,1
+61,Central Heating,,1
+61,Radiators,,1
+61,Underfloor Heating,,1
+
 
 
 
