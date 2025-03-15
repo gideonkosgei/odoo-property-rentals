@@ -33,6 +33,15 @@ class Property(models.Model):
         tracking=True
     )
 
+    is_multi_story = fields.Boolean(
+        string="Multi-Story",
+        store=True
+    )
+    total_stories = fields.Integer(
+        string="Total Stories",
+        store=True
+    )
+
     state = fields.Selection(
         [
             ("draft", "Draft"),
@@ -51,6 +60,7 @@ class Property(models.Model):
         "* The 'Rented' status is used when the property is rented.\n"
         "* The 'sold' status is used when the property is sold.\n",
     )
+
     location = fields.Char(string="Location", help="The location of the property", tracking=True)
     street = fields.Char(string="Street", required=True, help="The street name", tracking=True)
     street2 = fields.Char(string="Street2", help="The street2 name", tracking=True)
@@ -61,8 +71,11 @@ class Property(models.Model):
         string="Country",
         ondelete="restrict",
         required=True,
-        help="The name of the country", tracking=True
+        help="The name of the country", tracking=True,
+        readonly=True,
+        default = lambda self: self.env.company.country_id,
     )
+
     state_id = fields.Many2one(
         "res.country.state",
         string="State",
@@ -83,6 +96,57 @@ class Property(models.Model):
 
     main_road = fields.Char(string="Main Road",  help="Main road to the property", tracking=True)
 
+    # Insurance Details
+    insurance_policy_number = fields.Char(string="Policy Number", help="Insurance policy Number", tracking=True)
+    insurance_provider = fields.Char(string="Insurance Provider", help="Name of the company providing the insurance",
+                                     tracking=True)
+    insurance_coverage = fields.Text(string="Coverage Details", help="Description of what the insurance policy covers",
+                                     tracking=True)
+
+    owner_id = fields.Many2one(
+        "res.partner", string="Owner", required=True, help="The owner of the property", tracking=True
+    )
+    ownership_type = fields.Selection(
+        [
+            ("sole", "Sole Ownership"),
+            ("joint", "Joint Ownership"),
+            ("corporate", "Corporate Ownership"),
+        ],
+        string="Ownership Type",
+        required=True,
+        tracking=True,
+        help="Type of ownership: Sole, Joint, or Corporate"
+    )
+
+    legal_representative = fields.Many2one(
+        "res.partner", string="Representative", help="Name of the legal representative or property manager",
+        tracking=True
+    )
+    disclosure = fields.Text(
+        string="Ownership Disclosure",
+        help="Examples of Disclosures.\n"
+             "- Financial Obligations': Who is responsible for property taxes, maintenance, and mortgage payments? \n"
+             "- Sale Conditions':  Can one owner sell their share without the other’s consent? \n"
+             "- Legal Restrictions': legal agreements or restrictions affecting the property? \n"
+             "- Dispute Resolution': Handling of conflicts between owners? \n"
+             "- Encumbrances': loans or liens against the property? \n",
+        tracking=True
+    )
+    local_condition_ids = fields.One2many("property.local.condition", "property_id", string="Local Condition")
+    document_ids = fields.One2many("property.document", "property_id", string="Document Attachments")
+    facility_ids = fields.One2many("property.facility", "property_id", string="Facilities")
+    nearby_amenity_ids = fields.One2many("property.nearby.amenity", "property_id", string="Nearby Amenities")
+    dynamic_attribute_ids = fields.One2many("property.dynamic.attribute", "property_id", string="Dynamic Attributes")
+    people_ids = fields.One2many("property.people", "property_id", string="People")
+    unit_ids = fields.One2many("property.unit", "property_id", string="unit")
+    property_image_ids = fields.One2many(
+        "property.image", "property_id", string="Property Images", tracking=True
+    )
+    description = fields.Text(
+        string="Description", help="A brief description about the property", tracking=True
+    )
+
+    #orphans
     company_id = fields.Many2one(
         "res.company",
         string="Property Management Company",
@@ -92,66 +156,12 @@ class Property(models.Model):
         "res.currency", string="Currency", related="company_id.currency_id", tracking=True
     )
 
-    description = fields.Text(
-        string="Description", help="A brief description about the property", tracking=True
-    )
-    # responsible_id = fields.Many2one(
-    #     "res.users",
-    #     string="Responsible Person",
-    #     help="The responsible person for " "this property",
-    #     default=lambda self: self.env.user,
-    # )
-    type_residence = fields.Char(
-        string="Type of Residence", help="The type of the residence"
-    )
     total_floor = fields.Integer(
         string="Total Floor",
         default=1,
         help="The total number of floor in " "the property",
     )
-    bedroom = fields.Integer(
-        string="Bedrooms", help="Number of bedrooms in the property"
-    )
-    bathroom = fields.Integer(
-        string="Bathrooms", help="Number of bathrooms in the property"
-    )
-    parking = fields.Integer(
-        string="Parking",
-        help="Number of cars or bikes that can be parked " "in the property",
-    )
-    furnishing = fields.Selection(
-        [
-            ("no_furnished", "Not Furnished"),
-            ("half_furnished", "Partially Furnished"),
-            ("furnished", "Fully Furnished"),
-        ],
-        string="Furnishing",
-        help="Whether the residence is fully furnished or partially/half "
-        "furnished or not at all furnished",
-    )
-    land_name = fields.Char(string="Land Name", help="The name of the land")
-    land_area = fields.Char(
-        string="Area In Hector", help="The area of the land in hector"
-    )
-    shop_name = fields.Char(string="Shop Name", help="The name of the shop")
-    industry_name = fields.Char(string="Industry Name", help="The name of the industry")
-    usage = fields.Char(
-        string="Used For", help="For what purpose is this property used for"
-    )
 
-
-    area_measurement_ids = fields.One2many(
-        "property.area.measure", "property_id", string="Area Measurement"
-    )
-    total_sq_feet = fields.Float(
-        string="Total Square Feet",
-        compute="_compute_total_sq_feet",
-        help="The total area square feet of the " "property",
-    )
-    property_tags = fields.Many2many(
-        "property.tag", string="Property Tags", help="Tags for the property"
-    )
-    attachment_id = fields.Many2one("ir.attachment", string="Attachment")
     sale_rent = fields.Selection(
         [
             ("for_sale", "For Sale"),
@@ -174,50 +184,7 @@ class Property(models.Model):
         string="Rent/Month", help="Rent price per month", tracking=True
     )
 
-    #Insurance Details
-    insurance_policy_number = fields.Char(string="Policy Number", help="Insurance policy Number" , tracking=True)
-    insurance_provider = fields.Char(string="Insurance Provider", help="Name of the company providing the insurance" , tracking=True)
-    insurance_coverage = fields.Text(string="Coverage Details", help="Description of what the insurance policy covers" , tracking=True)
-
-    owner_id = fields.Many2one(
-        "res.partner", string="Owner",required=True, help="The owner of the property",tracking=True
-    )
-    ownership_type = fields.Selection(
-        [
-            ("sole", "Sole Ownership"),
-            ("joint", "Joint Ownership"),
-            ("corporate", "Corporate Ownership"),
-        ],
-        string="Ownership Type",
-        required=True,
-        tracking = True,
-        help="Type of ownership: Sole, Joint, or Corporate"
-    )
-
-    legal_representative = fields.Many2one(
-        "res.partner", string="Representative", help="Name of the legal representative or property manager", tracking=True
-    )
-    disclosure = fields.Text(
-        string="Ownership Disclosure",
-        help="Examples of Disclosures.\n"
-             "- Financial Obligations': Who is responsible for property taxes, maintenance, and mortgage payments? \n"
-             "- Sale Conditions':  Can one owner sell their share without the other’s consent? \n"
-             "- Legal Restrictions': legal agreements or restrictions affecting the property? \n"
-             "- Dispute Resolution': Handling of conflicts between owners? \n"
-             "- Encumbrances': loans or liens against the property? \n",
-    tracking=True
-    )
-    local_condition_ids = fields.One2many("property.local.condition", "property_id", string="Local Condition")
-    document_ids = fields.One2many("property.document", "property_id", string="Document Attachments")
-    facility_ids = fields.One2many("property.facility","property_id", string="Facilities")
-    nearby_amenity_ids = fields.One2many("property.nearby.amenity", "property_id", string="Nearby Amenities")
-    dynamic_attribute_ids = fields.One2many("property.dynamic.attribute", "property_id", string="Dynamic Attributes")
-    people_ids = fields.One2many("property.people", "property_id", string="People")
-    unit_ids = fields.One2many("property.unit", "property_id", string="unit")
-    property_image_ids = fields.One2many(
-        "property.image", "property_id", string="Property Images", tracking=True
-    )
-
+    #total_floors_in_building (Integer) – Total floors in the building
 
     @api.model_create_multi
     def create(self, vals_list):
@@ -280,3 +247,23 @@ class Property(models.Model):
     def _onchange_property_type_id(self):
         #Clears the building structure when property type changes
         self.property_structure_id = False
+
+    def action_add_unit(self):
+        return {
+            "type": "ir.actions.act_window",
+            "name": "Units",
+            "res_model": "property.unit",
+            "view_mode": "form",
+            "domain": [("property_id", "=", self.id)],
+            "context": {"default_property_id": self.id},
+        }
+
+    def action_view_units(self):
+        return {
+            "type": "ir.actions.act_window",
+            "name": "Units",
+            "res_model": "property.unit",
+            "view_mode": "list",
+            "domain": [("property_id", "=", self.id)],
+            "context": {"default_property_id": self.id},
+        }

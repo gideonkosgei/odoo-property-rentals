@@ -23,7 +23,7 @@
                 <field name="id"/>
                 <field name="list_type_id"/>
                 <field name="name"/>
-                <field name="active"/>
+                <field name="active" widget="boolean_toggle"/>
             </list>
         </field>
     </record>

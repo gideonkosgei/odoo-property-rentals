@@ -24,7 +24,7 @@
             <list editable="bottom">
                 <field name="id"/>
                 <field name="name"/>
-                <field name="active"/>
+                <field name="active" widget="boolean_toggle"/>
             </list>
         </field>
     </record>

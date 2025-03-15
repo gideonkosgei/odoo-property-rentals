@@ -3,10 +3,8 @@ from odoo import api, fields, models
 
 
 class PropertyAreaMeasure(models.Model):
-    """A class for the model property.area.measure to represent
-    the area of each sections"""
     _name = 'property.area.measure'
-    _description = 'Property Area Measurement'
+    _description = 'Unit Area Measurement'
 
     name = fields.Char(string='Section', required=True,
                        help='Name of the room or section')
@@ -15,8 +13,7 @@ class PropertyAreaMeasure(models.Model):
     height = fields.Float(string='Height(ft)', help='The height of the room')
     area = fields.Float(string='Area(ft²)', compute='_compute_area',
                         help='The total area of the room')
-    property_id = fields.Many2one('property.property', string='Property',
-                                  help='The corresponding property')
+    unit_id = fields.Many2one('property.unit', string='Unit')
 
     @api.depends('length', 'width', 'height')
     def _compute_area(self):

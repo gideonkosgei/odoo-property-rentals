@@ -50,7 +50,13 @@
                     <button name="action_available" string="Available"
                             type="object" class="btn-primary"
                             invisible="state != 'draft'"/>
+                    <button name="action_add_unit" type="object"
+                            string="Add Unit"
+                            class="btn btn-primary"/>
 
+                    <button name="action_view_units" type="object"
+                            string="View Units"
+                            class="btn btn-primary"/>
                 </header>
                 <sheet>
                     <div name="button_box" class="oe_button_box">
@@ -67,6 +73,7 @@
                                 class="oe_stat_button"
                                 icon="fa-dollar" string="Rental"
                                 invisible="state != 'rented'"/>
+
                     </div>
                     <field name="image" widget="image" class="oe_avatar"/>
                     <div class="oe_title">
@@ -82,10 +89,15 @@
                         <group>
                             <field name="property_type_id" options="{'no_create': True, 'no_open': True}"/>
                             <field name="property_structure_id" options="{'no_create': True, 'no_open': True}"/>
-                            <field name="property_tags"
-                                   widget="many2many_tags"/>
+                            <field name="is_multi_story"
+                                   invisible="property_type_id == 29 or property_structure_id ==145 or not property_structure_id"/>
+                            <field name="total_stories" invisible="not is_multi_story"/>
+                        </group>
+                        <group>
+                            <field name="description"/>
                         </group>
                     </group>
+
                     <notebook>
                         <page string="Ownership">
                             <group>
@@ -243,83 +255,64 @@
                         <page string="Units">
                             <field name="unit_ids">
                                 <list editable="bottom">
-                                   <field name="name"/>
+                                    <field name="name"/>
                                     <field name="floor_number"/>
-                                    <field name="area_size" />
-                                    <field name="bedrooms" />
-                                    <field name="bathrooms" />
-                                    <field name="is_occupied" />
-                                    <field name="rent_price" />
-                                    <field name="status" />
+                                    <field name="bedrooms"/>
+                                    <field name="bathrooms"/>
+                                    <field name="rent_price"/>
+                                    <field name="status"/>
                                 </list>
                             </field>
                         </page>
-<!--                        <page string="Property Details">-->
-<!--                            <group invisible="property_type_id != 1">-->
-<!--                                <group>-->
-<!--                                    <field name="type_residence"/>-->
-<!--                                    <field name="total_floor"/>-->
-<!--                                    <field name="furnishing"/>-->
-<!--                                </group>-->
-<!--                                <group>-->
-<!--                                    <field name="bedroom"/>-->
-<!--                                    <field name="bathroom"/>-->
-<!--                                    <field name="parking"/>-->
-<!--                                </group>-->
-<!--                            </group>-->
-<!--                            <group invisible="property_type_id != 4">-->
-<!--                                <group>-->
-<!--                                    <field name="land_name"/>-->
-<!--                                </group>-->
-<!--                                <group>-->
-<!--                                    <field name="land_area"/>-->
-<!--                                </group>-->
-<!--                            </group>-->
-<!--                            <group invisible="property_type_id != 3">-->
-<!--                                <group>-->
-<!--                                    <field name="industry_name"/>-->
-<!--                                    <field name="usage"/>-->
-<!--                                </group>-->
-<!--                                <group>-->
-<!--                                    <field name="location"/>-->
-<!--                                </group>-->
-<!--                            </group>-->
-<!--                            <group invisible="property_type_id != 2">-->
-<!--                                <group>-->
-<!--                                    <field name="shop_name"/>-->
-<!--                                    <field name="usage"/>-->
-<!--                                </group>-->
-<!--                                <group>-->
-<!--                                    <field name="total_floor"/>-->
-<!--                                </group>-->
-<!--                            </group>-->
-<!--                        </page>-->
-<!--                        <page string="Price Details">-->
-<!--                            <group>-->
-<!--                                <field name="sale_rent"/>-->
-<!--                                <field name="unit_price" invisible="sale_rent != 'for_sale'"/>-->
-<!--                                <field name="rent_month" invisible="sale_rent != 'for_tenancy'"/>-->
-<!--                            </group>-->
-<!--                        </page>-->
+                        <!--                        <page string="Property Details">-->
+                        <!--                            <group invisible="property_type_id != 1">-->
+                        <!--                                <group>-->
+                        <!--                                    <field name="type_residence"/>-->
+                        <!--                                    <field name="total_floor"/>-->
+                        <!--                                    <field name="furnishing"/>-->
+                        <!--                                </group>-->
+                        <!--                                <group>-->
+                        <!--                                    <field name="bedroom"/>-->
+                        <!--                                    <field name="bathroom"/>-->
+                        <!--                                    <field name="parking"/>-->
+                        <!--                                </group>-->
+                        <!--                            </group>-->
+                        <!--                            <group invisible="property_type_id != 4">-->
+                        <!--                                <group>-->
+                        <!--                                    <field name="land_name"/>-->
+                        <!--                                </group>-->
+                        <!--                                <group>-->
+                        <!--                                    <field name="land_area"/>-->
+                        <!--                                </group>-->
+                        <!--                            </group>-->
+                        <!--                            <group invisible="property_type_id != 3">-->
+                        <!--                                <group>-->
+                        <!--                                    <field name="industry_name"/>-->
+                        <!--                                    <field name="usage"/>-->
+                        <!--                                </group>-->
+                        <!--                                <group>-->
+                        <!--                                    <field name="location"/>-->
+                        <!--                                </group>-->
+                        <!--                            </group>-->
+                        <!--                            <group invisible="property_type_id != 2">-->
+                        <!--                                <group>-->
+                        <!--                                    <field name="shop_name"/>-->
+                        <!--                                    <field name="usage"/>-->
+                        <!--                                </group>-->
+                        <!--                                <group>-->
+                        <!--                                    <field name="total_floor"/>-->
+                        <!--                                </group>-->
+                        <!--                            </group>-->
+                        <!--                        </page>-->
+                        <!--                        <page string="Price Details">-->
+                        <!--                            <group>-->
+                        <!--                                <field name="sale_rent"/>-->
+                        <!--                                <field name="unit_price" invisible="sale_rent != 'for_sale'"/>-->
+                        <!--                                <field name="rent_month" invisible="sale_rent != 'for_tenancy'"/>-->
+                        <!--                            </group>-->
+                        <!--                        </page>-->
                         <!--                        <page string="Description">-->
                         <!--                            <field name="description"/>-->
-                        <!--                        </page>-->
-
-                        <!--                        <page string="Measurement" name="measurement">-->
-                        <!--                            <field name="area_measurement_ids">-->
-                        <!--                                <list editable="bottom">-->
-                        <!--                                    <field name="name"/>-->
-                        <!--                                    <field name="length"/>-->
-                        <!--                                    <field name="width"/>-->
-                        <!--                                    <field name="height"/>-->
-                        <!--                                    <field name="area"/>-->
-                        <!--                                </list>-->
-                        <!--                            </field>-->
-                        <!--                            <h2 class="oe_subtotal_footer oe_right">-->
-                        <!--                                <group>-->
-                        <!--                                    <field name="total_sq_feet"/>-->
-                        <!--                                </group>-->
-                        <!--                            </h2>-->
                         <!--                        </page>-->
 
 

@@ -18,6 +18,7 @@
               action="property_unit_action"
               sequence="15"
     />
+
     <record id="property_unit_view_form" model="ir.ui.view">
         <field name="name">property.unit.view.form</field>
         <field name="model">property.unit</field>
@@ -31,30 +32,95 @@
                 <sheet>
                     <div class="oe_title">
                         <h1>
-                            <field name="name" placeholder="Enter Property Name"/>
+                            <field name="name" readonly="1"/>
                         </h1>
                         <br/>
                         <group>
-                            <field name="name"/>
-                            <field name="property_id"/>
-                            <field name="floor_number"/>
-                            <field name="area_size"/>
-                            <field name="bedrooms"/>
-                            <field name="bathrooms"/>
-                            <field name="is_occupied"/>
-                            <field name="rent_price"/>
-                            <field name="status"/>
+                            <group>
+                                <field name="property_id"/>
+                                <field name="name"/>
+                                <field name="mixed_unit_type" invisible = "not is_mixed_use"/>
+                                <field name="floor_number" invisible="not is_multi_story"/>
+                                <field name="rent_price"/>
+                                <field name="status"/>
+                            </group>
+                            <group>
+                            </group>
                         </group>
                     </div>
                     <notebook>
-                        <page string="Interior Specifications">
+                        <page string="Details" invisible="not is_shop or mixed_unit_type !='retail' ">
+                            <group>
+                                <group>
+                                    <field name="display_windows"/>
+                                    <field name="shelving_racks"/>
+                                    <field name="foot_traffic_rating"/>
+                                </group>
+                                <group>
+                                    <field name="customer_seating_area"/>
+                                    <field name="billing_counter_space"/>
+
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Details" invisible="not is_residential or mixed_unit_type !='residential' ">
+                            <group>
+                                <group>
+                                    <field name="property_layout"/>
+                                    <field name="bedrooms"/>
+                                    <field name="bathrooms"/>
+                                </group>
+                                <group>
+                                    <field name="has_balcony"/>
+                                    <field name="number_of_balconies" invisible="not has_balcony"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Details" invisible="not is_office or mixed_unit_type !='office' ">
+                            <group>
+                                <group>
+                                    <field name="number_of_rooms"/>
+                                    <field name="partitioning"/>
+                                    <field name="workstation_capacity"/>
+                                    <field name="conference_rooms"/>
+                                    <field name="executive_offices"/>
+                                    <field name="private_entrance"/>
+                                </group>
+                                <group>
+                                    <field name="has_lounge_area"/>
+                                    <field name="reception_area"/>
+                                    <field name="soundproofing"/>
+                                    <field name="hvac_system"/>
+                                    <field name="mezzanine_floor"/>
+
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Details" invisible="not is_warehouse or mixed_unit_type !='warehouse' ">
+                            <group>
+                                <group>
+                                    <field name="storage_capacity"/>
+                                    <field name="loading_docks"/>
+                                    <field name="has_truck_parking"/>
+                                    <field name="ceiling_clearance"/>
+                                </group>
+                                <group>
+                                    <field name="floor_loading_capacity"/>
+                                    <field name="temperature_control"/>
+                                    <field name="pallet_racking"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Interior" invisible="not is_residential or mixed_unit_type !='residential'">
                             <group>
                                 <group>
                                     <field name="furnishing"/>
                                     <field name="flooring_type"/>
                                     <field name="kitchen_type"/>
-                                    <field name="kitchen_appliances"/>
+                                    <field name="kitchen_appliance"/>
                                     <field name="cabinets_material"/>
+                                    <field name="built_in_closets"/>
+                                    <field name="basement_storage"/>
                                 </group>
                                 <group>
                                     <field name="wall_material"/>
@@ -62,8 +128,121 @@
                                     <field name="air_conditioning"/>
                                     <field name="heating_system"/>
                                     <field name="fireplace"/>
+                                    <field name="attic"/>
                                 </group>
                             </group>
+                        </page>
+                        <page string="Fixtures" invisible="furnishing == 287 or not furnishing or not is_residential">
+                            <field name="furnish_ids">
+                                <list editable="bottom">
+                                    <field name="section_id"/>
+                                    <field name="item_id"/>
+                                    <field name="quantity"/>
+                                    <field name="cost"/>
+                                    <field name="details"/>
+                                    <field name="image" filename="image_filename"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Connectivity">
+                            <group>
+                                <group>
+                                    <field name="wifi_ready"/>
+                                    <field name="fiber_optic_available"/>
+                                    <field name="smart_home_features"/>
+                                    <field name="cable_tv"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Sustainability">
+                            <group>
+                                <group>
+                                    <field name="has_solar_panels"/>
+                                    <field name="energy_rating"/>
+                                    <field name="insulation"/>
+                                    <field name="green_certification"/>
+                                    <field name="water_recycling_system"/>
+                                    <field name="backup_power_supply"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Outdoor">
+                            <group>
+                                <group>
+                                    <field name="garden"/>
+                                    <field name="terrace"/>
+                                    <field name="outdoor_seating_area"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Parking">
+                            <group>
+                                <group>
+                                    <field name="parking"/>
+                                    <field name="covered_parking"/>
+                                    <field name="visitor_parking"/>
+                                    <field name="loading_zone"/>
+                                    <field name="handicap_accessible"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Security &amp; Safety">
+                            <group>
+                                <group>
+                                    <field name="cctv"/>
+                                    <field name="fire_alarm"/>
+                                    <field name="fire_suppression_system"/>
+                                    <field name="emergency_exits"/>
+                                    <field name="biometric_access"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Sanitation">
+                            <group>
+                                <group>
+                                    <field name="bathrooms"/>
+                                    <field name="bathroom_features"/>
+                                    <field name="plumbing_status"/>
+                                    <field name="water_supply"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Finishes" invisible="not is_residential or mixed_unit_type !='residential'">
+                            <group>
+                                <group>
+                                    <field name="finish_living_bedroom"/>
+                                    <field name="finish_Kitchen"/>
+                                    <field name="finish_bathroom"/>
+                                    <field name="finish_corridor"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Measurement" name="measurement">
+                            <field name="area_measurement_ids">
+                                <list editable="bottom">
+                                    <field name="name"/>
+                                    <field name="length"/>
+                                    <field name="width"/>
+                                    <field name="height"/>
+                                    <field name="area"/>
+                                </list>
+                            </field>
+                            <h2 class="oe_subtotal_footer oe_right">
+                                <group>
+                                    <field name="total_sq_feet"/>
+                                </group>
+                            </h2>
+                        </page>
+                        <page string="Meters">
+                            <field name="utility_meter_ids">
+                                <list editable="bottom">
+                                    <field name="category_id"/>
+                                    <field name="utility_id"/>
+                                    <field name="provider_id"/>
+                                    <field name="meter_number"/>
+                                    <field name="details"/>
+                                </list>
+                            </field>
                         </page>
                         <page string="Images">
                             <field name="image_ids">
@@ -110,26 +289,12 @@
                                 </form>
                             </field>
                         </page>
-                        <page string="Utility Meters">
-                            <field name="utility_meter_ids">
+                        <page string="Dynamic Attributes">
+                            <field name="unit_dynamic_attribute_ids">
                                 <list editable="bottom">
-                                    <field name="category_id"/>
-                                    <field name="utility_id"/>
-                                    <field name="provider_id"/>
-                                    <field name="meter_number"/>
-                                    <field name="details"/>
-                                </list>
-                            </field>
-                        </page>
-                        <page string="Furniture &amp; Appliances">
-                            <field name="furnish_ids">
-                                <list editable="bottom">
-                                    <field name="section_id"/>
-                                    <field name="item_id"/>
-                                    <field name="quantity"/>
-                                    <field name="cost"/>
-                                    <field name="details"/>
-                                    <field name="image" filename="image_filename"/>
+                                    <field name="attribute_key"/>
+                                    <field name="attribute_value"/>
+                                    <field name="notes"/>
                                 </list>
                             </field>
                         </page>
@@ -149,10 +314,8 @@
                 <field name="name"/>
                 <field name="property_id"/>
                 <field name="floor_number"/>
-                <field name="area_size"/>
                 <field name="bedrooms"/>
                 <field name="bathrooms"/>
-                <field name="is_occupied"/>
                 <field name="rent_price"/>
                 <field name="status"/>
             </list>

@@ -13,7 +13,6 @@ from . import property_property
 from . import property_document
 from . import property_rental
 from . import property_sale
-from . import property_tag
 from . import rental_bill
 from . import res_partner
 from . import property_list_type
@@ -24,4 +23,5 @@ from . import property_local_condition
 from . import property_unit
 from . import property_unit_utility_meter
 from . import property_unit_furnish
+from . import property_unit_dynamic_attribute
 

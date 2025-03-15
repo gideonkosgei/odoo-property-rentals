@@ -25,7 +25,7 @@
                 <field name="list_name_id"/>
                 <field name="name"/>
                 <field name="description"/>
-                <field name="active"/>
+                <field name="active" widget="boolean_toggle"/>
             </list>
         </field>
     </record>

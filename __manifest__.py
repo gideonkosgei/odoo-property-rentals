@@ -38,7 +38,6 @@
         'views/property_list_type_views.xml',
         'views/property_list_value_views.xml',
         'views/property_list_name_views.xml',
-        'views/property_tag_views.xml',
         'views/property_search_pannel_views.xml',
         'views/property_templates.xml',
         'views/property_commision_views.xml',
