@@ -39,17 +39,23 @@
                             <group>
                                 <field name="property_id"/>
                                 <field name="name"/>
-                                <field name="mixed_unit_type" invisible = "not is_mixed_use"/>
+                                <field name="mixed_unit_type" invisible="not is_mixed_use"/>
                                 <field name="floor_number" invisible="not is_multi_story"/>
                                 <field name="rent_price"/>
-                                <field name="status"/>
+
+                            </group>
+                            <group>
+                                <field name="occupancy_status"/>
+                                <field name="lease_status"/>
+                                <field name="financial_legal_status"/>
                             </group>
                             <group>
                             </group>
                         </group>
                     </div>
                     <notebook>
-                        <page string="Details" invisible="not is_shop or mixed_unit_type !='retail' ">
+
+                        <page string="Details" invisible="not is_shop and mixed_unit_type !='retail' ">
                             <group>
                                 <group>
                                     <field name="display_windows"/>
@@ -63,7 +69,8 @@
                                 </group>
                             </group>
                         </page>
-                        <page string="Details" invisible="not is_residential or mixed_unit_type !='residential' ">
+
+                        <page string="Details" invisible="not is_residential and mixed_unit_type !='residential'">
                             <group>
                                 <group>
                                     <field name="property_layout"/>
@@ -76,7 +83,8 @@
                                 </group>
                             </group>
                         </page>
-                        <page string="Details" invisible="not is_office or mixed_unit_type !='office' ">
+
+                        <page string="Details" invisible="not is_office and mixed_unit_type !='office'">
                             <group>
                                 <group>
                                     <field name="number_of_rooms"/>
@@ -96,7 +104,8 @@
                                 </group>
                             </group>
                         </page>
-                        <page string="Details" invisible="not is_warehouse or mixed_unit_type !='warehouse' ">
+
+                        <page string="Details" invisible="not is_warehouse and mixed_unit_type !='warehouse'">
                             <group>
                                 <group>
                                     <field name="storage_capacity"/>
@@ -111,7 +120,8 @@
                                 </group>
                             </group>
                         </page>
-                        <page string="Interior" invisible="not is_residential or mixed_unit_type !='residential'">
+
+                        <page string="Interior" invisible="not is_residential and mixed_unit_type !='residential'">
                             <group>
                                 <group>
                                     <field name="furnishing"/>
@@ -132,7 +142,8 @@
                                 </group>
                             </group>
                         </page>
-                        <page string="Fixtures" invisible="furnishing == 287 or not furnishing or not is_residential">
+
+                        <page string="Fixtures" invisible="furnishing == 287 or not furnishing or mixed_unit_type in ('retail', 'office', 'warehouse')">
                             <field name="furnish_ids">
                                 <list editable="bottom">
                                     <field name="section_id"/>
@@ -157,11 +168,11 @@
                         <page string="Sustainability">
                             <group>
                                 <group>
-                                    <field name="has_solar_panels"/>
-                                    <field name="energy_rating"/>
-                                    <field name="insulation"/>
-                                    <field name="green_certification"/>
-                                    <field name="water_recycling_system"/>
+                                    <field name="has_solar_panels" />
+                                    <field name="energy_rating" widget="radio" options="{'horizontal': True}"/>
+                                    <field name="insulation" widget="radio" options="{'horizontal': True}"/>
+                                    <field name="green_certification" widget="radio" options="{'horizontal': True}"/>
+                                    <field name="water_recycling_system" />
                                     <field name="backup_power_supply"/>
                                 </group>
                             </group>
@@ -317,7 +328,6 @@
                 <field name="bedrooms"/>
                 <field name="bathrooms"/>
                 <field name="rent_price"/>
-                <field name="status"/>
             </list>
         </field>
     </record>

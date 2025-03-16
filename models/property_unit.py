@@ -79,7 +79,7 @@ class PropertyUnit(models.Model):
     has_solar_panels = fields.Boolean(string="Solar Panels?", default=False,tracking=True)
     energy_rating = fields.Selection([("A+", "A+"), ("A", "A"), ("B", "B"), ("C", "C"), ("D", "D")],
                                      string="Energy Rating",tracking=True)
-    insulation = fields.Selection([("Foam", "Foam"), ("Fiberglass", "Fiberglass"), ("Wool", "Wool"), ("None", "None")],
+    insulation = fields.Selection([("Foam", "Foam"), ("Fiber_glass", "Fiber Glass"), ("Wool", "Wool"), ("None", "None")],
                                   string="Insulation",tracking=True)
     green_certification = fields.Selection([("LEED", "LEED"), ("BREEAM", "BREEAM"), ("None", "None")],
                                            string="Green Certification",tracking=True)
@@ -144,6 +144,34 @@ class PropertyUnit(models.Model):
         string="Status",
         default="available",
         tracking=True
+    )
+
+    lease_status = fields.Many2one(
+        "property.list.value",
+        string="Lease Status",
+        domain="[('list_name_id', '=', 71), ('active', '=', True)]",
+        default="Available",
+        tracking=True,
+        required=True
+    )
+    financial_legal_status = fields.Many2one(
+        "property.list.value",
+        string="Financial & Legal Status",
+        domain="[('list_name_id', '=', 70), ('active', '=', True)]",
+        tracking=True
+    )
+    special_use_case = fields.Many2one(
+        "property.list.value",
+        string="Special Use Cases",
+        domain="[('list_name_id', '=', 72), ('active', '=', True)]",
+        tracking=True
+    )
+    occupancy_status = fields.Many2one(
+        "property.list.value",
+        string="Occupancy Status",
+        domain="[('list_name_id', '=', 69), ('active', '=', True)]",
+        tracking=True,
+        required=True
     )
 
     finish_living_bedroom = fields.Selection(
@@ -234,10 +262,10 @@ class PropertyUnit(models.Model):
         string="Temperature Control",tracking=True
     )
     unit_dynamic_attribute_ids = fields.One2many("property.unit.dynamic.attribute", "unit_id", string="Dynamic Attributes")
-    _sql_constraints = [
-        ('unique_unit_property', 'UNIQUE(name, property_id)',
-         'The unit name must be unique within the same property.')
-    ]
+    # _sql_constraints = [
+    #     ('unique_unit_property', 'UNIQUE(name, property_id)',
+    #      'The unit name must be unique within the same property.')
+    # ]
 
     def _compute_total_sq_feet(self):
         """Calculates the total square feet of the property"""
@@ -259,9 +287,9 @@ class PropertyUnit(models.Model):
             property_structure_id = record.property_id.property_structure_id.id
             record.is_mixed_use = property_structure_id == 157
             record.is_multi_story = record.property_id.is_multi_story == True
-            record.is_residential = property_type_id == 26 or record.is_mixed_use
-            record.is_commercial = property_type_id == 27 or record.is_mixed_use
-            record.is_office = property_structure_id == 154 or record.is_mixed_use
-            record.is_warehouse = property_structure_id == 156 or record.is_mixed_use
-            record.is_shop = property_structure_id == 155 or record.is_mixed_use
+            record.is_residential = property_type_id == 26
+            record.is_commercial = property_type_id == 27
+            record.is_office = property_structure_id == 154
+            record.is_warehouse = property_structure_id == 156
+            record.is_shop = property_structure_id == 155
 

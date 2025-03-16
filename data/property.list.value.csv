@@ -349,8 +349,37 @@ list_name_id.id,name,description,active
 68,Laundry basket/Hamper,,1
 68,Vacuum cleaner/Broom & dustpan,,1
 68,Mop & bucket,,1
-
-
-
+69,Available,Ready for rent and open for tenant applications,1
+69,Occupied,Currently rented and in use by a tenant,1
+69,Under Maintenance,Being repaired or renovated,1
+69,Reserved,A tenant has committed but hasn’t moved in yet.,1
+69,Off-Market,Not listed for rent or sale at the moment,1
+69,For Sale,Listed for sale instead of rental,1
+70,Rent Overdue,Occupied but tenant has outstanding rent,1
+70,Eviction in Progress,Tenant is being legally removed,1
+70,Foreclosed,Taken over due to unpaid mortgage,1
+70,Deposit Not Paid,Lease signed but security deposit is still pending,1
+70,Legal Dispute,Property involved in legal proceedings,1
+70,Bankruptcy Hold,Tenant or owner is undergoing bankruptcy affecting leasing,1
+71,Lease Active,The lease is currently in effect with no issues,1
+71,Lease Expiring Soon,The lease is nearing its end date,1
+71,Notice Given,The tenant has formally notified of their intent to vacate1,
+71,Pending Move-Out,Tenant is in the process of moving out,1
+71,Lease Renewal Pending,Tenant deciding whether to renew the lease,1
+71,Non-Renewal Confirmed,Lease will not be renewed and the unit will soon be vacant,1
+71,Lease Break Requested,Tenant has requested early termination of the lease,1
+71,Lease Transfer in Progress,Lease is being transferred to another tenant,1
+71,Move-Out Completed,Tenant has left but final inspection is pending,1
+71,Fixed-Term Lease,The lease has a set end date and is still running,1
+71,Month-to-Month Lease,The lease continues on a rolling basis without a fixed end date,1
+71,Tenant Holdover,The tenant remains in the unit after the lease has expired but without a new agreement,1
+71,Lease Extended,The lease has been formally extended beyond the original term,1
+71,Sublet Approved, The unit is currently subleased to another tenant with the landlords approval,1
+71,Eviction in Progress,The tenant is being legally removed due to violations or non-payment,1
+71,Breach of Lease,The tenant has violated lease terms and action may be required,1
+71,Lease Terminated,The lease has been officially terminated and the unit is now vacant,1
+72,Government-Assisted Rental,Rented under a government subsidy program,1
+72,Student Housing,Restricted to student tenants,1
+72,Senior Housing,Reserved for senior citizens,1
 
 
