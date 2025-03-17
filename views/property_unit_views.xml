@@ -76,6 +76,7 @@
                                     <field name="property_layout"/>
                                     <field name="bedrooms"/>
                                     <field name="bathrooms"/>
+                                    <field name="bathroom_features"/>
                                 </group>
                                 <group>
                                     <field name="has_balcony"/>
@@ -211,8 +212,6 @@
                         <page string="Sanitation">
                             <group>
                                 <group>
-                                    <field name="bathrooms"/>
-                                    <field name="bathroom_features"/>
                                     <field name="plumbing_status"/>
                                     <field name="water_supply"/>
                                 </group>
