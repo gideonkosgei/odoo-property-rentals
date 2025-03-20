@@ -141,7 +141,7 @@ class PropertyUnit(models.Model):
 
     status = fields.Selection(
         [("available", "Available"), ("occupied", "Occupied"), ("under_maintenance", "Under Maintenance")],
-        string="Status",
+        string="Occupancy Status",
         default="available",
         tracking=True
     )
@@ -285,11 +285,11 @@ class PropertyUnit(models.Model):
         for record in self:
             property_type_id = record.property_id.property_type_id.id
             property_structure_id = record.property_id.property_structure_id.id
-            record.is_mixed_use = property_structure_id == 157
+            record.is_mixed_use = property_structure_id == 162
             record.is_multi_story = record.property_id.is_multi_story == True
             record.is_residential = property_type_id == 26
             record.is_commercial = property_type_id == 27
-            record.is_office = property_structure_id == 154
-            record.is_warehouse = property_structure_id == 156
-            record.is_shop = property_structure_id == 155
+            record.is_office = property_structure_id == 159
+            record.is_warehouse = property_structure_id == 161
+            record.is_shop = property_structure_id == 160
 
