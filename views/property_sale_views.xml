@@ -11,11 +11,11 @@
             </p>
         </field>
     </record>
-    <!-- Property sale menu item -->
-    <menuitem id="property_sale_menu" name="Property Sale"
-              parent="property_menu"
-              action="property_sale_action" sequence="5"/>
-    <!-- Property sale tree view -->
+
+<!--    <menuitem id="property_sale_menu" name="Property Sale"-->
+<!--              parent="property_menu"-->
+<!--              action="property_sale_action" sequence="5"/>-->
+
     <record id="property_sale_view_tree" model="ir.ui.view">
         <field name="name">property.sale.view.list</field>
         <field name="model">property.sale</field>

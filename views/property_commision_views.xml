@@ -12,9 +12,9 @@
         </field>
     </record>
     <!-- Property commission menu items -->
-    <menuitem id="property_commission_menu" name="Commission"
-              parent="property_configuration_menu"
-              action="property_commission_action" sequence="20"/>
+<!--    <menuitem id="property_commission_menu" name="Commission"-->
+<!--              parent="property_configuration_menu"-->
+<!--              action="property_commission_action" sequence="20"/>-->
     <!-- Property commission tree view -->
     <record id="property_commission_view_tree" model="ir.ui.view">
         <field name="name">property.commission.list</field>

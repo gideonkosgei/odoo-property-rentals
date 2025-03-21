@@ -11,11 +11,11 @@
             </p>
         </field>
     </record>
-    <!-- Property auction menui tems -->
-    <menuitem id="property_auction_menu" name="Property Auction"
-              parent="property_menu"
-              action="property_auction_action" sequence="10"/>
-    <!-- Property auction form view -->
+
+<!--    <menuitem id="property_auction_menu" name="Property Auction"-->
+<!--              parent="property_menu"-->
+<!--              action="property_auction_action" sequence="10"/>-->
+
     <record id="property_auction_view_form" model="ir.ui.view">
         <field name="name">property.auction.view.from</field>
         <field name="model">property.auction</field>

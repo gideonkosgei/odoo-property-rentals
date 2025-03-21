@@ -11,11 +11,11 @@
             </p>
         </field>
     </record>
-    <!-- Property rental menu items -->
+
     <menuitem id="property_rental_menu" name="Property Rental"
               parent="property_menu"
               action="property_rental_action" sequence="8"/>
-    <!-- Property rental tree view -->
+
     <record id="property_rental_view_tree" model="ir.ui.view">
         <field name="name">property.rental.view.list</field>
         <field name="model">property.rental</field>

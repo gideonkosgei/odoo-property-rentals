@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Property action -->
+
     <record id="property_action" model="ir.actions.act_window">
         <field name="name">Property</field>
         <field name="type">ir.actions.act_window</field>
@@ -12,7 +12,7 @@
             </p>
         </field>
     </record>
-    <!-- Property menu items -->
+
     <menuitem id="property_root_menu" name="Property Management"
               groups="advanced_property_management.group_property_agent"
               web_icon="advanced_property_management,static/description/icon.png"/>
@@ -22,7 +22,6 @@
               parent="property_menu"
               action="property_action" sequence="3"/>
 
-    <!-- Property tree view -->
     <record id="property_property_view_tree" model="ir.ui.view">
         <field name="name">property.property.view.list</field>
         <field name="model">property.property</field>
@@ -38,7 +37,6 @@
         </field>
     </record>
 
-    <!-- Property form view -->
     <record id="property_property_view_form" model="ir.ui.view">
         <field name="name">property.property.view.form</field>
         <field name="model">property.property</field>
@@ -73,7 +71,13 @@
                                 class="oe_stat_button"
                                 icon="fa-dollar" string="Rental"
                                 invisible="state != 'rented'"/>
-
+                        <button name="action_view_units"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-building"
+                                string="Units">
+                            <field name="unit_count" widget="statinfo"/>
+                        </button>
                     </div>
                     <field name="image" widget="image" class="oe_avatar"/>
                     <div class="oe_title">
@@ -264,58 +268,6 @@
                                 </list>
                             </field>
                         </page>
-                        <!--                        <page string="Property Details">-->
-                        <!--                            <group invisible="property_type_id != 1">-->
-                        <!--                                <group>-->
-                        <!--                                    <field name="type_residence"/>-->
-                        <!--                                    <field name="total_floor"/>-->
-                        <!--                                    <field name="furnishing"/>-->
-                        <!--                                </group>-->
-                        <!--                                <group>-->
-                        <!--                                    <field name="bedroom"/>-->
-                        <!--                                    <field name="bathroom"/>-->
-                        <!--                                    <field name="parking"/>-->
-                        <!--                                </group>-->
-                        <!--                            </group>-->
-                        <!--                            <group invisible="property_type_id != 4">-->
-                        <!--                                <group>-->
-                        <!--                                    <field name="land_name"/>-->
-                        <!--                                </group>-->
-                        <!--                                <group>-->
-                        <!--                                    <field name="land_area"/>-->
-                        <!--                                </group>-->
-                        <!--                            </group>-->
-                        <!--                            <group invisible="property_type_id != 3">-->
-                        <!--                                <group>-->
-                        <!--                                    <field name="industry_name"/>-->
-                        <!--                                    <field name="usage"/>-->
-                        <!--                                </group>-->
-                        <!--                                <group>-->
-                        <!--                                    <field name="location"/>-->
-                        <!--                                </group>-->
-                        <!--                            </group>-->
-                        <!--                            <group invisible="property_type_id != 2">-->
-                        <!--                                <group>-->
-                        <!--                                    <field name="shop_name"/>-->
-                        <!--                                    <field name="usage"/>-->
-                        <!--                                </group>-->
-                        <!--                                <group>-->
-                        <!--                                    <field name="total_floor"/>-->
-                        <!--                                </group>-->
-                        <!--                            </group>-->
-                        <!--                        </page>-->
-                        <!--                        <page string="Price Details">-->
-                        <!--                            <group>-->
-                        <!--                                <field name="sale_rent"/>-->
-                        <!--                                <field name="unit_price" invisible="sale_rent != 'for_sale'"/>-->
-                        <!--                                <field name="rent_month" invisible="sale_rent != 'for_tenancy'"/>-->
-                        <!--                            </group>-->
-                        <!--                        </page>-->
-                        <!--                        <page string="Description">-->
-                        <!--                            <field name="description"/>-->
-                        <!--                        </page>-->
-
-
                     </notebook>
                 </sheet>
                 <chatter/>
@@ -323,7 +275,6 @@
         </field>
     </record>
 
-    <!-- Property kanban view -->
     <record id="property_property_view_kanban" model="ir.ui.view">
         <field name="name">property.property.view.kanban</field>
         <field name="model">property.property</field>
@@ -389,7 +340,6 @@
         </field>
     </record>
 
-    <!-- Property search view -->
     <record id="property_property_view_search" model="ir.ui.view">
         <field name="name">property.property.view.search</field>
         <field name="model">property.property</field>

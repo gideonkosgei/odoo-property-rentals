@@ -263,7 +263,14 @@ class Property(models.Model):
             "type": "ir.actions.act_window",
             "name": "Units",
             "res_model": "property.unit",
-            "view_mode": "list",
+            "view_mode": "list,form",
             "domain": [("property_id", "=", self.id)],
             "context": {"default_property_id": self.id},
         }
+
+    unit_count = fields.Integer(string="Units", compute="_compute_unit_count", store=True)
+
+    @api.depends("unit_ids")
+    def _compute_unit_count(self):
+        for record in self:
+            record.unit_count = len(record.unit_ids)

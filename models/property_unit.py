@@ -12,6 +12,16 @@ class PropertyUnit(models.Model):
                                   help="The property this unit belongs to")
     mixed_unit_type = fields.Selection([("residential", "Residential"), ("retail", "Retail"),("office", "Office"),("warehouse", "Warehouse")],
                                        string="Unit Type",tracking=True)
+    property_type_id = fields.Many2one(
+        'property.list.name', string="Property Type",
+        related='property_id.property_type_id', readonly=True
+    )
+
+    property_structure_id = fields.Many2one(
+        'property.list.value', string="Structure Type",
+        related='property_id.property_structure_id', readonly=True
+    )
+
 
     image_ids = fields.One2many(
         "property.unit.image", "unit_id", string="Unit Images"

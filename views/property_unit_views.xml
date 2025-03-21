@@ -13,7 +13,6 @@
         </field>
     </record>
 
-
     <menuitem id="property_unit_menu"
               name="Property Units"
               parent="property_menu"
@@ -44,7 +43,6 @@
                                 <field name="mixed_unit_type" invisible="not is_mixed_use"/>
                                 <field name="floor_number" invisible="not is_multi_story"/>
                                 <field name="rent_price"/>
-
                             </group>
                             <group>
                                 <field name="occupancy_status"/>
@@ -323,9 +321,10 @@
         <field name="model">property.unit</field>
         <field name="arch" type="xml">
             <list>
-                <field name="id"/>
-                <field name="name"/>
                 <field name="property_id"/>
+                <field name="property_type_id"/>
+                <field name="property_structure_id"/>
+                <field name="name"/>
                 <field name="status"/>
                 <field name="lease_status"/>
                 <field name="floor_number"/>
@@ -335,6 +334,7 @@
             </list>
         </field>
     </record>
+
     <record id="property_unit_view_search" model="ir.ui.view">
         <field name="name">property.unit.view.search</field>
         <field name="model">property.unit</field>
@@ -347,6 +347,8 @@
                 <searchpanel>
                     <field name="status" string="Property Status" enable_counters="1"/>
                     <field name="lease_status" string="Lease Status" enable_counters="1"/>
+                    <field name="property_type_id" string="Property Type" enable_counters="1"/>
+                    <field name="property_structure_id" string="Structure Type" enable_counters="1"/>
                 </searchpanel>
             </search>
         </field>
