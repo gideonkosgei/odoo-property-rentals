@@ -269,7 +269,7 @@ class PropertyUnit(models.Model):
                                            help="Whether dedicated counter space is available")
     foot_traffic_rating = fields.Selection(
         [("high", "High"), ("medium", "Medium"), ("low", "Low")],
-        string="Temperature Control",tracking=True
+        string="Foot Traffic Rating",tracking=True
     )
     unit_dynamic_attribute_ids = fields.One2many("property.unit.dynamic.attribute", "unit_id", string="Dynamic Attributes")
     # _sql_constraints = [

@@ -47,6 +47,8 @@
         'views/rental_bill_views.xml',
         'views/property_unit_views.xml',
         'views/property_auction_views.xml',
+        'views/property_rental_contract_views.xml',
+        'views/property_rental_invoice_views.xml',
         'reports/property_sale_report.xml',
         'reports/property_report.xml',
         'wizards/property_sale_report_views.xml',

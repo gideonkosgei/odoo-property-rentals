@@ -4,8 +4,6 @@ from odoo.exceptions import ValidationError
 
 
 class PropertyRental(models.Model):
-    """A class for the model property rental to represent
-    the rental order of a property"""
     _name = 'property.rental'
     _description = 'Property Rent'
     _inherit = ['mail.thread', 'mail.activity.mixin']

@@ -1,0 +1,73 @@
+<odoo>
+
+    <record id="view_property_rental_invoice_tree" model="ir.ui.view">
+        <field name="name">property.rental.invoice.list</field>
+        <field name="model">property.rental.invoice</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="contract_id"/>
+                <field name="tenant_id"/>
+                <field name="invoice_date"/>
+                <field name="amount_due"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+
+
+    <record id="view_property_rental_invoice_form" model="ir.ui.view">
+        <field name="name">property.rental.invoice.form</field>
+        <field name="model">property.rental.invoice</field>
+        <field name="arch" type="xml">
+            <form string="Rental Invoice">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" readonly="1"/>
+                            <field name="contract_id"/>
+                            <field name="tenant_id"/>
+                            <field name="invoice_date"/>
+                            <field name="amount_due"/>
+                        </group>
+                        <group>
+                            <field name="state" widget="statusbar" options="{'clickable': True}"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="action_mark_paid" string="Mark as Paid" type="object" class="btn-success" invisible="state != 'draft'"/>
+                        <button name="action_cancel" string="Cancel" type="object" class="btn-danger" invisible="state != 'draft'"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_property_rental_invoice_search" model="ir.ui.view">
+        <field name="name">property.rental.invoice.search</field>
+        <field name="model">property.rental.invoice</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="contract_id"/>
+                <field name="tenant_id"/>
+                <field name="state"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_property_rental_invoice" model="ir.actions.act_window">
+        <field name="name">Rental Invoices</field>
+        <field name="res_model">property.rental.invoice</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_property_rental_invoice"
+              name="Rental Invoices"
+              parent="property_menu"
+              action="action_property_rental_invoice"
+              sequence="23"
+    />
+
+</odoo>

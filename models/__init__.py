@@ -24,4 +24,6 @@ from . import property_unit
 from . import property_unit_utility_meter
 from . import property_unit_furnish
 from . import property_unit_dynamic_attribute
+from . import property_rental_contract
+from . import property_rental_invoice
 
