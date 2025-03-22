@@ -256,18 +256,6 @@
                                 </list>
                             </field>
                         </page>
-                        <page string="Units">
-                            <field name="unit_ids">
-                                <list editable="bottom">
-                                    <field name="name"/>
-                                    <field name="floor_number"/>
-                                    <field name="bedrooms"/>
-                                    <field name="bathrooms"/>
-                                    <field name="rent_price"/>
-                                    <field name="status"/>
-                                </list>
-                            </field>
-                        </page>
                     </notebook>
                 </sheet>
                 <chatter/>

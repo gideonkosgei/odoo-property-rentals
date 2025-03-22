@@ -26,8 +26,8 @@
         <field name="arch" type="xml">
             <form>
                 <header>
-                    <field name="status" widget="statusbar"
-                           statusbar_visible="draft,available"
+                    <field name="occupancy_status" widget="statusbar"
+                           statusbar_visible="Available,Occupied,Under Maintenance,Off-Market,For Sale"
                     />
                 </header>
                 <sheet>
@@ -325,9 +325,8 @@
                 <field name="property_type_id"/>
                 <field name="property_structure_id"/>
                 <field name="name"/>
-                <field name="status"/>
+                <field name="occupancy_status"/>
                 <field name="lease_status"/>
-                <field name="floor_number"/>
                 <field name="bedrooms"/>
                 <field name="bathrooms"/>
                 <field name="rent_price"/>
@@ -342,10 +341,10 @@
             <search string="List">
                 <group expand="1" string="Group By">
                     <filter string="Property" name="property" context="{'group_by':'property_id'}"/>
-                    <filter string="Status" name="status" context="{'group_by':'status'}"/>
+                    <filter string="Occupancy Status" name="occupancy_status" context="{'group_by':'occupancy_status'}"/>
                 </group>
                 <searchpanel>
-                    <field name="status" string="Property Status" enable_counters="1"/>
+                    <field name="occupancy_status" string="Occupancy Status" enable_counters="1"/>
                     <field name="lease_status" string="Lease Status" enable_counters="1"/>
                     <field name="property_type_id" string="Property Type" enable_counters="1"/>
                     <field name="property_structure_id" string="Structure Type" enable_counters="1"/>

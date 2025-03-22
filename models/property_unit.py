@@ -149,13 +149,6 @@ class PropertyUnit(models.Model):
         [("open_plan", "Open - plan"), ("traditional", "Traditional"), ("multi_level", "Multi - level")],
         string="Property Layout", tracking=True)
 
-    status = fields.Selection(
-        [("available", "Available"), ("occupied", "Occupied"), ("under_maintenance", "Under Maintenance")],
-        string="Occupancy Status",
-        default="available",
-        tracking=True
-    )
-
     lease_status = fields.Many2one(
         "property.list.value",
         string="Lease Status",
